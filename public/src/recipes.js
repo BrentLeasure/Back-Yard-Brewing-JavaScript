@@ -2,7 +2,7 @@ var xhr = new XMLHttpRequest();
 
 getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 	if(xhr != undefined){
-		let parent = document.getElementById('recipes');
+		let parent = document.getElementById('beers');
 		let docfrag = document.createDocumentFragment();
 		let beerTypes = JSON.parse(xhr.responseText);
 
@@ -21,6 +21,7 @@ getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 			// add onclick attribute
 			button.setAttribute("name", beerTypes[beer].alias);
 			button.setAttribute("onclick", "moreInfo(this.getAttribute('name'))");
+			button.className = 'beer-buttons'
 
 			//append button to document fragment
 			docfrag.appendChild(button);
@@ -36,7 +37,11 @@ getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 var moreInfo = (alias) => {
 	getRequest('/beer/', alias, (xhr = undefined)=>{
 		if(xhr != undefined){
-				console.log(JSON.parse(xhr.responseText));
+
+			let parent = document.getElementById('recipes');
+			let docfrag = document.createDocumentFragment();
+			let recipeList = JSON.parse(xhr.responseText);
+			console.log(recipeList.length);
 		}else{
 			console.log("ERROR!");
 		}

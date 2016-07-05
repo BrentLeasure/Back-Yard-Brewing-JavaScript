@@ -63,13 +63,17 @@ server.use(passport.session());
 //GET ROUTES
 //==============
 server.get("/", function(req, res){
-	res.sendFile("/main.html", {root: "./public/Recipes"})
+	res.sendFile("/main.html", {root: "./public/home"})
+});
+
+server.get("/recipes", function(req, res){
+	res.sendFile("/main.html", {root: "./public/recipes"})
 });
 
 
 server.get("/beer/:beerAlias", recipeController.getRecipes);
 
-server.get("/getallbeertypes", recipeController.getAllBeerTypes);
+server.get("/recipes/getallbeertypes", recipeController.getAllBeerTypes);
 
 server.get("/getImage/", imageController.getImage);
 
