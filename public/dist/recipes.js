@@ -1,6 +1,7 @@
 'use strict';
 
 var xhr = new XMLHttpRequest();
+var beerTypes = [];
 
 getRequest('getallbeertypes', undefined, function () {
 	var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
@@ -8,8 +9,7 @@ getRequest('getallbeertypes', undefined, function () {
 	if (xhr != undefined) {
 		var parent = document.getElementById('beers');
 		var docfrag = document.createDocumentFragment();
-		var beerTypes = JSON.parse(xhr.responseText);
-
+		beerTypes = JSON.parse(xhr.responseText);
 		//loop through beerTypes to append a button to each list item
 		for (var beer = 0; beer < beerTypes.length; beer++) {
 			//create necessary elements
@@ -23,8 +23,8 @@ getRequest('getallbeertypes', undefined, function () {
 			button.appendChild(li);
 
 			// add onclick attribute
-			button.setAttribute("name", beerTypes[beer].alias);
-			button.setAttribute("onclick", "moreInfo(this.getAttribute('name'))");
+			button.setAttribute("value", beer);
+			button.setAttribute("onclick", "moreInfo(this.getAttribute('value'))");
 			button.className = 'beer-buttons';
 
 			//append button to document fragment
@@ -36,16 +36,32 @@ getRequest('getallbeertypes', undefined, function () {
 	}
 });
 
-var moreInfo = function moreInfo(alias) {
-	getRequest('/beer/', alias, function () {
+var moreInfo = function moreInfo(beer) {
+	getRequest('/beer/', beerTypes[beer].alias, function () {
 		var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 
 		if (xhr != undefined) {
+			//set general beer type information
+			document.getElementById('title').textContent = beerTypes[beer].alias;
+			document.getElementById('about').textContent = beerTypes[beer].about;
+			document.getElementById('abv').textContent = beerTypes[beer].abv;
 
+			//set parent to recipes, and put the recipe list in a variable
 			var parent = document.getElementById('recipes');
 			var docfrag = document.createDocumentFragment();
 			var recipeList = JSON.parse(xhr.responseText);
-			console.log(recipeList.length);
+			//appending recipe list to DOM
+			for (var recipe = 0; recipe < recipeList.length; recipe++) {
+
+				var li = document.createElement('li');
+				li.textContent = recipeList[recipe].alias;
+
+				var button = document.createElement('button');
+				button.appendChild(li);
+
+				docfrag.appendChild(button);
+			}
+			parent.appendChild(docfrag);
 		} else {
 			console.log("ERROR!");
 		}

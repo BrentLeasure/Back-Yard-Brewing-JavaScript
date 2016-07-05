@@ -1,24 +1,26 @@
-.buttons {
+.buttons, #beers .beer-buttons {
   background-color: transparent;
   border: none;
   text-align: center;
   border: solid black 1px;
   border-radius: 5px; }
 
-.button-hover {
+.button-hover, #beers .beer-buttons:hover {
   background-color: rgba(135, 45, 46, 0.9); }
 
-.general-li, #beers ul .beer-buttons li {
+.general-li, #beers .beer-buttons li {
   list-style: none; }
 
-.general-ul, #beers ul {
+.general-ul, #beers {
   padding: 0px;
   margin: 0px; }
 
-#beers ul .beer-buttons {
-  float: left;
-  display: inline-block;
-  width: 25%;
-  margin: 3% 3%; }
+#beers {
+  display: block; }
+  #beers .beer-buttons {
+    float: left;
+    display: inline-block;
+    width: 25%;
+    margin: 3% 3%; }
 
 /*# sourceMappingURL=main.css.map */
