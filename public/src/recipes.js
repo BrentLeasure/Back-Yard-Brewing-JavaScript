@@ -21,7 +21,7 @@ getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 			// add onclick attribute
 			button.setAttribute("name", beerTypes[beer].alias);
 			button.setAttribute("onclick", "moreInfo(this.getAttribute('name'))");
-			button.className = 'beer-buttons'
+			button.className = 'beer-buttons';
 
 			//append button to document fragment
 			docfrag.appendChild(button);

@@ -6,7 +6,7 @@ getRequest('getallbeertypes', undefined, function () {
 	var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 
 	if (xhr != undefined) {
-		var parent = document.getElementById('recipes');
+		var parent = document.getElementById('beers');
 		var docfrag = document.createDocumentFragment();
 		var beerTypes = JSON.parse(xhr.responseText);
 
@@ -25,6 +25,7 @@ getRequest('getallbeertypes', undefined, function () {
 			// add onclick attribute
 			button.setAttribute("name", beerTypes[beer].alias);
 			button.setAttribute("onclick", "moreInfo(this.getAttribute('name'))");
+			button.className = 'beer-buttons';
 
 			//append button to document fragment
 			docfrag.appendChild(button);
@@ -40,7 +41,11 @@ var moreInfo = function moreInfo(alias) {
 		var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 
 		if (xhr != undefined) {
-			console.log(JSON.parse(xhr.responseText));
+
+			var parent = document.getElementById('recipes');
+			var docfrag = document.createDocumentFragment();
+			var recipeList = JSON.parse(xhr.responseText);
+			console.log(recipeList.length);
 		} else {
 			console.log("ERROR!");
 		}

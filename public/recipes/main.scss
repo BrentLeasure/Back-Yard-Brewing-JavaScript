@@ -2,8 +2,16 @@
 
 #beers{
 	ul{
+		@extend .general-ul;
 		.beer-buttons{
-
+			float: left;
+			display: inline-block;
+			width: 25%;
+			margin: 3% 3%;
+			
+			li{
+				@extend .general-li;
+			}
 		}
 	}
 }

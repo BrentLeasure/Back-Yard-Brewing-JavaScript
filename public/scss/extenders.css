@@ -8,17 +8,11 @@
 .button-hover {
   background-color: rgba(135, 45, 46, 0.9); }
 
-.general-li, #beers ul .beer-buttons li {
+.general-li {
   list-style: none; }
 
-.general-ul, #beers ul {
+.general-ul {
   padding: 0px;
   margin: 0px; }
 
-#beers ul .beer-buttons {
-  float: left;
-  display: inline-block;
-  width: 25%;
-  margin: 3% 3%; }
-
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=extenders.css.map */
