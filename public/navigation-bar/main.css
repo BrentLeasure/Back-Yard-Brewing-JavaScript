@@ -9,17 +9,25 @@
   border: solid black 1px;
   border-radius: 5px; }
 
-.close-button {
-  padding: 5px; }
-
 .button-hover {
   background-color: rgba(135, 45, 46, 0.9); }
 
-.general-li {
+.general-li, #navigation-bar ul li {
   list-style: none; }
 
 .general-ul {
   padding: 0px;
   margin: 0px; }
 
-/*# sourceMappingURL=extenders.css.map */
+#navigation-bar {
+  z-index: 25;
+  width: 100%;
+  position: fixed;
+  float: left;
+  background-color: #872d2e; }
+  #navigation-bar ul li {
+    display: inline; }
+    #navigation-bar ul li a {
+      color: white; }
+
+/*# sourceMappingURL=main.css.map */

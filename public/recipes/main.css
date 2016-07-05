@@ -1,26 +1,35 @@
-.buttons, #beers .beer-buttons {
+.general-content, #content {
+  position: relative;
+  top: 70px; }
+
+.buttons, #content #beers .beer-buttons, #content #recipes .close {
   background-color: transparent;
   border: none;
   text-align: center;
   border: solid black 1px;
   border-radius: 5px; }
 
-.button-hover, #beers .beer-buttons:hover {
+.close-button, #content #recipes .close {
+  padding: 5px; }
+
+.button-hover, #content #beers .beer-buttons:hover {
   background-color: rgba(135, 45, 46, 0.9); }
 
-.general-li, #beers .beer-buttons li {
+.general-li, #content #beers .beer-buttons li, #content #recipes li {
   list-style: none; }
 
-.general-ul, #beers {
+.general-ul, #content #beers, #content #recipes {
   padding: 0px;
   margin: 0px; }
 
-#beers {
-  display: block; }
-  #beers .beer-buttons {
+#content {
+  padding: 15px; }
+  #content #beers .beer-buttons {
     float: left;
     display: inline-block;
     width: 25%;
     margin: 3% 3%; }
+  #content #recipes {
+    display: none; }
 
 /*# sourceMappingURL=main.css.map */

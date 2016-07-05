@@ -1,4 +1,10 @@
 @import 'variables';
+
+.general-content{
+	position: relative;
+	top: 70px;
+}
+
 .buttons{
 	background-color: transparent;
 	border: none;
@@ -6,6 +12,11 @@
 	border: solid black 1px;
 	border-radius: 5px;
 }
+
+.close-button{
+	padding: 5px;
+}
+
 .button-hover{
 	background-color: $mainColorTransparent;
 }

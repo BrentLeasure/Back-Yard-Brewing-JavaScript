@@ -10,6 +10,7 @@ getRequest('getallbeertypes', undefined, function () {
 		var parent = document.getElementById('beers');
 		var docfrag = document.createDocumentFragment();
 		beerTypes = JSON.parse(xhr.responseText);
+
 		//loop through beerTypes to append a button to each list item
 		for (var beer = 0; beer < beerTypes.length; beer++) {
 			//create necessary elements
@@ -50,7 +51,8 @@ var moreInfo = function moreInfo(beer) {
 			var parent = document.getElementById('recipes');
 			var docfrag = document.createDocumentFragment();
 			var recipeList = JSON.parse(xhr.responseText);
-			//appending recipe list to DOM
+
+			//loop through recipeList to append a button to each list item
 			for (var recipe = 0; recipe < recipeList.length; recipe++) {
 
 				var li = document.createElement('li');
@@ -61,7 +63,11 @@ var moreInfo = function moreInfo(beer) {
 
 				docfrag.appendChild(button);
 			}
+
 			parent.appendChild(docfrag);
+
+			document.getElementById('beers').style.display = 'none';
+			document.getElementById('recipes').style.display = 'block';
 		} else {
 			console.log("ERROR!");
 		}

@@ -6,6 +6,7 @@ getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 		let parent = document.getElementById('beers');
 		let docfrag = document.createDocumentFragment();
 		beerTypes = JSON.parse(xhr.responseText);
+		
 		//loop through beerTypes to append a button to each list item
 		for (let beer = 0; beer < beerTypes.length; beer++){
 			//create necessary elements
@@ -46,7 +47,8 @@ var moreInfo = (beer) => {
 			let parent = document.getElementById('recipes');
 			let docfrag = document.createDocumentFragment();
 			let recipeList = JSON.parse(xhr.responseText);
-			//appending recipe list to DOM
+
+			//loop through recipeList to append a button to each list item
 			for(let recipe = 0; recipe < recipeList.length; recipe++){
 
 				let li = document.createElement('li');
@@ -58,7 +60,11 @@ var moreInfo = (beer) => {
 
 				docfrag.appendChild(button);
 			}
+
 			parent.appendChild(docfrag);
+
+			document.getElementById('beers').style.display = 'none';
+			document.getElementById('recipes').style.display = 'block';
 		}else{
 			console.log("ERROR!");
 		}

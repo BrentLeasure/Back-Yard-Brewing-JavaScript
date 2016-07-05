@@ -1,18 +1,37 @@
 @import '../scss/extenders';
+#content{
+	@extend .general-content;
+	
+	padding: 15px;
 
-#beers{
-	@extend .general-ul;
+	#beers{
+		@extend .general-ul;
 
-	.beer-buttons{
-		@extend .buttons;
+		.beer-buttons{
+			@extend .buttons;
 
-		float: left;
-		display: inline-block;
-		width: 25%;
-		margin: 3% 3%;
+			float: left;
+			display: inline-block;
+			width: 25%;
+			margin: 3% 3%;
 
-		&:hover{
-			@extend .button-hover;
+			&:hover{
+				@extend .button-hover;
+			}
+
+			li{
+				@extend .general-li;
+			}
+		}
+	}
+
+	#recipes{
+		display: none;
+		@extend .general-ul;
+
+		.close{
+			@extend .buttons;
+			@extend .close-button;
 		}
 
 		li{

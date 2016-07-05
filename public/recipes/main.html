@@ -2,7 +2,14 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+
+	<!-- LOCAL LINKS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="../navigation-bar/main.css">
+
+	<!-- PULLED FROM WEB -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+
 </head>
 <body>
 	<nav id='navigation-bar'></nav>
@@ -11,11 +18,14 @@
 			
 		</ul>
 		<ul id='recipes'>
+			<button class="close">x</button>
 			<h3 id='title'></h3>
 			<p id="abv">Abv: </p>
 			<p id="about"></p>
 		</ul>
 	</div>
+
+	<!-- LOCAL SCRIPTS -->
 	<script type="text/javascript" src="../dist/navigation-bar.js"></script>
 	<script src="../dist/ajax.js"></script>
 	<script src="../dist/recipes.js"></script>
