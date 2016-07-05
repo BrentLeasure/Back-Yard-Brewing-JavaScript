@@ -1,0 +1,19 @@
+@import '../scss/extenders';
+@import '../scss/variables';
+
+#navigation-bar{
+	width: 100%;
+	position: fixed;
+	float: left;
+
+	background-color: $mainColor;
+	ul{
+		li{
+			a{
+				color: $navigationFontColor;
+			}
+			display: inline;
+			@extend .general-li;
+		}
+	}
+}
