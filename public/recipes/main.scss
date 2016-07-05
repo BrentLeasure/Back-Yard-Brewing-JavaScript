@@ -1,4 +1,6 @@
 @import '../scss/extenders';
+@import '../scss/mixins';
+
 #content{
 	@extend .general-content;
 	
@@ -32,6 +34,8 @@
 		.close{
 			@extend .buttons;
 			@extend .close-button;
+
+			@include heightWidth(30px, 30px);
 		}
 
 		li{

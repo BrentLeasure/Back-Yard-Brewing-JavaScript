@@ -14,15 +14,19 @@
 <body>
 	<nav id='navigation-bar'></nav>
 	<div id='content'>
+		<input id="search-beers" onkeydown="searchBeerList(event)">
 		<ul id='beers'>
 			
 		</ul>
-		<ul id='recipes'>
-			<button class="close">x</button>
+		<div id='recipes'>
+			<button class="close" onclick="closeBeerWindow()">x</button>
 			<h3 id='title'></h3>
 			<p id="abv">Abv: </p>
 			<p id="about"></p>
-		</ul>
+			<ul id='user-recipes'>
+				
+			</ul>
+		</div>
 	</div>
 
 	<!-- LOCAL SCRIPTS -->

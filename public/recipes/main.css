@@ -31,5 +31,8 @@
     margin: 3% 3%; }
   #content #recipes {
     display: none; }
+    #content #recipes .close {
+      height: 30px;
+      width: 30px; }
 
 /*# sourceMappingURL=main.css.map */

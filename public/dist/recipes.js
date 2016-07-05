@@ -2,7 +2,7 @@
 
 var xhr = new XMLHttpRequest();
 var beerTypes = [];
-
+var search;
 getRequest('getallbeertypes', undefined, function () {
 	var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 
@@ -42,15 +42,18 @@ var moreInfo = function moreInfo(beer) {
 		var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 
 		if (xhr != undefined) {
+			//removing any previous nodes from previous calls
+			document.getElementById('user-recipes').innerHTML = "";
+
+			//set parent to recipes, and put the recipe list in a variable
+			var parent = document.getElementById('user-recipes');
+			var docfrag = document.createDocumentFragment();
+			var recipeList = JSON.parse(xhr.responseText);
+
 			//set general beer type information
 			document.getElementById('title').textContent = beerTypes[beer].alias;
 			document.getElementById('about').textContent = beerTypes[beer].about;
 			document.getElementById('abv').textContent = beerTypes[beer].abv;
-
-			//set parent to recipes, and put the recipe list in a variable
-			var parent = document.getElementById('recipes');
-			var docfrag = document.createDocumentFragment();
-			var recipeList = JSON.parse(xhr.responseText);
 
 			//loop through recipeList to append a button to each list item
 			for (var recipe = 0; recipe < recipeList.length; recipe++) {
@@ -72,5 +75,19 @@ var moreInfo = function moreInfo(beer) {
 			console.log("ERROR!");
 		}
 	});
+};
+
+var closeBeerWindow = function closeBeerWindow() {
+	document.getElementById('beers').style.display = 'block';
+	document.getElementById('recipes').style.display = 'none';
+};
+
+var searchBeerList = function searchBeerList(keypress) {
+	if (keypress.key == 'backspace') {
+		search = search.substring(0, search.length - 1);
+	} else {
+		search += keypress.key;
+	}
+	console.log(search);
 };
 //# sourceMappingURL=recipes.js.map
