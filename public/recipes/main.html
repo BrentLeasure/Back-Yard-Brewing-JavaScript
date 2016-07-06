@@ -14,10 +14,12 @@
 <body>
 	<nav id='navigation-bar'></nav>
 	<div id='content'>
+		<div id="beer-list">
 		<input id="search-beers" onkeydown="resetBeerList()" onkeyup="searchBeerList(document.getElementById('search-beers').value)">
 			<ul id='beers'>
 				
 			</ul>
+		</div>
 		<div id='recipes'>
 			<button class="close" onclick="closeBeerWindow()">x</button>
 			<h3 id='title'></h3>

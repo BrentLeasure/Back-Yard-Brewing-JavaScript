@@ -68,7 +68,7 @@ var moreInfo = (beer) => {
 
 			parent.appendChild(docfrag);
 
-			document.getElementById('beers').style.display = 'none';
+			document.getElementById('beer-list').style.display = 'none';
 			document.getElementById('recipes').style.display = 'block';
 		}else{
 			console.log("ERROR!");
