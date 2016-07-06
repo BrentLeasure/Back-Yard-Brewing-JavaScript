@@ -9,6 +9,9 @@
   border: solid black 1px;
   border-radius: 5px; }
 
+.close-button {
+  padding: 5px; }
+
 .button-hover {
   background-color: rgba(135, 45, 46, 0.9); }
 
@@ -25,9 +28,15 @@
   position: fixed;
   float: left;
   background-color: #872d2e; }
-  #navigation-bar ul li {
-    display: inline; }
-    #navigation-bar ul li a {
-      color: white; }
+  #navigation-bar ul {
+    padding-left: 5px; }
+    #navigation-bar ul li {
+      display: inline; }
+      #navigation-bar ul li a {
+        color: white;
+        margin: 0px 20px 0px 0px;
+        text-decoration: none; }
+      #navigation-bar ul li:hover {
+        text-decoration: underline; }
 
 /*# sourceMappingURL=main.css.map */
