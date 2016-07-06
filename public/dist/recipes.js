@@ -2,7 +2,7 @@
 
 var xhr = new XMLHttpRequest();
 var beerTypes = [];
-var search;
+var search = '';
 getRequest('getallbeertypes', undefined, function () {
 	var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 
@@ -25,6 +25,7 @@ getRequest('getallbeertypes', undefined, function () {
 
 			// add onclick attribute
 			button.setAttribute("value", beer);
+			button.setAttribute("name", beerTypes[beer].alias);
 			button.setAttribute("onclick", "moreInfo(this.getAttribute('value'))");
 			button.className = 'beer-buttons';
 
@@ -78,16 +79,30 @@ var moreInfo = function moreInfo(beer) {
 };
 
 var closeBeerWindow = function closeBeerWindow() {
-	document.getElementById('beers').style.display = 'block';
+	document.getElementById('beer-list').style.display = 'inline-block';
 	document.getElementById('recipes').style.display = 'none';
 };
 
-var searchBeerList = function searchBeerList(keypress) {
-	if (keypress.key == 'backspace') {
-		search = search.substring(0, search.length - 1);
-	} else {
-		search += keypress.key;
+var searchBeerList = function searchBeerList(search) {
+	//setting display to 'inline-block' for all li elements in 'user-recipes'
+
+	//Sets the elements to
+	if (search != '') {
+		for (var beer = 0; beer < beerTypes.length; beer++) {
+			var beerName = beerTypes[beer].alias.toLowerCase();
+			var input = search.toLowerCase();
+
+			if (!beerName.includes(input)) {
+				document.getElementById('beers').children[beer].style.display = 'none';
+			} else {}
+		}
 	}
-	console.log(search);
+};
+
+var resetBeerList = function resetBeerList() {
+	var elems = document.getElementById('beers').getElementsByTagName('button');
+	for (var li = 0; li < elems.length; li++) {
+		elems[li].style.display = 'inline-block';
+	}
 };
 //# sourceMappingURL=recipes.js.map
