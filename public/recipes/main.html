@@ -1,6 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
 	<title></title>
 
 	<!-- LOCAL LINKS -->
@@ -15,7 +16,8 @@
 	<nav id='navigation-bar'></nav>
 	<div id='content'>
 		<div id="beer-list">
-		<input id="search-beers" onkeyup="searchBeerList(document.getElementById('search-beers').value)">
+		<input placeholder = "search beers" id="search-beers" onkeyup="searchBeerList(document.getElementById('search-beers').value)">
+		<a class="submit-recipe" href="/submitrecipe">Submit a recipe!</a>
 			<ul id='beers'>
 				
 			</ul>
@@ -25,6 +27,8 @@
 			<h3 id='title'></h3>
 			<p id="abv">Abv: </p>
 			<p id="about"></p>
+
+			<h3>User Recipes</h3>
 			<ul id='user-recipes'>
 				
 			</ul>

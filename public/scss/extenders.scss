@@ -5,9 +5,17 @@
 	top: 70px;
 }
 
+.list-of-buttons{
+	float: left;
+	display: inline-block;
+	width: 25%;
+	margin: 3% 3%;
+}
+
 .buttons{
 	background-color: transparent;
 	border: none;
+	padding: 5px 5px 5px;
 	text-align: center;
 	border: solid black 1px;
 	border-radius: 5px;

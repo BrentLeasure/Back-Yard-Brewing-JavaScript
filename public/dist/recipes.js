@@ -58,22 +58,23 @@ var moreInfo = function moreInfo(beer) {
 
 			//loop through recipeList to append a button to each list item
 			for (var recipe = 0; recipe < recipeList.length; recipe++) {
-
+				//create necessary elements
+				var button = document.createElement('button');
 				var li = document.createElement('li');
 				li.textContent = recipeList[recipe].alias;
 
-				var button = document.createElement('button');
 				button.appendChild(li);
+				button.className = 'recipe-buttons';
 
 				docfrag.appendChild(button);
 			}
 
+			//append document fragment to the DOM
 			parent.appendChild(docfrag);
 
+			//Hides the beer list and displays the recipes
 			document.getElementById('beer-list').style.display = 'none';
 			document.getElementById('recipes').style.display = 'block';
-		} else {
-			console.log("ERROR!");
 		}
 	});
 };

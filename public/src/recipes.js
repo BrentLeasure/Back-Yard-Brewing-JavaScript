@@ -55,13 +55,14 @@ var moreInfo = (beer) => {
 
 			//loop through recipeList to append a button to each list item
 			for(let recipe = 0; recipe < recipeList.length; recipe++){
-
+				//create necessary elements
+				let button = document.createElement('button');		
 				let li = document.createElement('li');
 				li.textContent = recipeList[recipe].alias;
 
 
-				let button = document.createElement('button');
 				button.appendChild(li);
+				button.className = 'recipe-buttons';
 
 				docfrag.appendChild(button);
 			}

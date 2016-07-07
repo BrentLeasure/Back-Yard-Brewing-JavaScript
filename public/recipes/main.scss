@@ -5,24 +5,37 @@
 	@extend .general-content;
 	
 	padding: 15px;
+	#beer-list{
+		#beers{
+			@extend .general-ul;
 
-	#beers{
-		@extend .general-ul;
+			.beer-buttons{
+				@extend .buttons;
+				@extend .list-of-buttons;
 
-		.beer-buttons{
+
+				&:hover{
+					@extend .button-hover;
+				}
+
+				li{
+					@extend .general-li;
+				}
+			}
+		}
+		.submit-recipe{
 			@extend .buttons;
 
-			float: left;
-			display: inline-block;
-			width: 25%;
-			margin: 3% 3%;
+			position: relative;	
+			text-decoration: none;
+			color: black;
+			left: 60%;
 
-			&:hover{
-				@extend .button-hover;
+			@media screen and(max-width: $midScreen){
+				left: 40%;
 			}
-
-			li{
-				@extend .general-li;
+			@media screen and(max-width: $smallScreen){
+				left: 10%;
 			}
 		}
 	}
@@ -36,10 +49,32 @@
 			@extend .close-button;
 
 			@include heightWidth(30px, 30px);
+
+			&:hover{
+				@extend .button-hover;
+			}
 		}
 
-		li{
-			@extend .general-li;
+		.recipe-buttons{
+			@extend .buttons;
+			@extend .list-of-buttons;
+
+			width: 15%;
+
+			&:hover{
+				@extend .button-hover;
+			}
+			li{
+				@extend .general-li;
+			}
 		}
+	}
+
+	@media screen and (max-width: $midScreen){
+		font-size: 12px;
+	}
+
+	@media screen and (max-width: $smallScreen){
+		font-size: 6px;
 	}
 }
