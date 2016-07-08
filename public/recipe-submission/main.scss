@@ -1,0 +1,6 @@
+@import '../scss/extenders';
+
+#submission-content{
+	@extend .general-content;	
+	background-color: white;
+}

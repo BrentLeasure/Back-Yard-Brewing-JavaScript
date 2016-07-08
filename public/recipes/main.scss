@@ -4,7 +4,6 @@
 #content{
 	@extend .general-content;
 	
-	padding: 15px;
 	#beer-list{
 		#beers{
 			@extend .general-ul;

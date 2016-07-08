@@ -1,6 +1,5 @@
 'use strict';
 
-var xhr = new XMLHttpRequest();
 var beerTypes = [];
 var search = '';
 getRequest('getallbeertypes', undefined, function () {

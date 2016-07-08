@@ -1,6 +1,7 @@
 .general-content, #content {
   position: relative;
-  top: 70px; }
+  top: 70px;
+  padding: 15px; }
 
 .list-of-buttons, #content #beer-list #beers .beer-buttons, #content #recipes .recipe-buttons {
   float: left;
@@ -29,31 +30,29 @@
   padding: 0px;
   margin: 0px; }
 
-#content {
-  padding: 15px; }
-  #content #beer-list .submit-recipe {
-    position: relative;
-    text-decoration: none;
-    color: black;
-    left: 60%; }
-    @media screen and (max-width: 970px) {
-      #content #beer-list .submit-recipe {
-        left: 40%; } }
-    @media screen and (max-width: 750px) {
-      #content #beer-list .submit-recipe {
-        left: 10%; } }
-  #content #recipes {
-    display: none; }
-    #content #recipes .close {
-      height: 30px;
-      width: 30px; }
-    #content #recipes .recipe-buttons {
-      width: 15%; }
+#content #beer-list .submit-recipe {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  left: 60%; }
   @media screen and (max-width: 970px) {
-    #content {
-      font-size: 12px; } }
+    #content #beer-list .submit-recipe {
+      left: 40%; } }
   @media screen and (max-width: 750px) {
-    #content {
-      font-size: 6px; } }
+    #content #beer-list .submit-recipe {
+      left: 10%; } }
+#content #recipes {
+  display: none; }
+  #content #recipes .close {
+    height: 30px;
+    width: 30px; }
+  #content #recipes .recipe-buttons {
+    width: 15%; }
+@media screen and (max-width: 970px) {
+  #content {
+    font-size: 12px; } }
+@media screen and (max-width: 750px) {
+  #content {
+    font-size: 6px; } }
 
 /*# sourceMappingURL=main.css.map */

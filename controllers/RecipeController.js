@@ -67,17 +67,19 @@ getAllBeerTypes = function(req, res){
 //===================
 createRecipe = function(req, res){
 	//creating variables
+	console.log(req.body);
+
 		var nullVariable;
 		var body = req.body
 		var nullVar = false;
 		var counter = 0;
-	if(req.file === undefined){
-		return res.status(400).send({
-   			message: "You need to include a picture!"
-		});
-	}else{
-		req.body.image = req.file;
-	}
+	// if(req.file === undefined){
+	// 	return res.status(400).send({
+ //   			message: "You need to include a picture!"
+	// 	});
+	// }else{
+	// 	req.body.image = req.file;
+	// }
 	if(req.user){
 		//checks if any variables are null
 		for(variable in body){
@@ -103,9 +105,13 @@ createRecipe = function(req, res){
 			var newRecipe = new recipeModel.userRecipe(req.body);
 			newRecipe.save(function(err, data){
 				if(err){
-					res.send(err);
+					res.status(400).send({
+						message: err
+					});
 				}else{
-					res.send(data);
+					res.status(200).send({
+						message: "success!"
+					})
 				}	
 			})
 		}
@@ -124,9 +130,12 @@ updateRecipe = function(req, res){
 	if(req.user){
 		recipeModel.userRecipe.update({_id: req.body._id}, req.body, function(err){
 			if(err){
-				res.send(err);
+				res.status(400).send({
+					message: err				});
 			}else{
-				res.send("success!");
+				res.status(200).send({
+					message: "success!"
+				});
 			}
 		});
 
@@ -145,9 +154,13 @@ deleteRecipe = function(req, res){
 	if(req.user){
 		recipeModel.userRecipe.remove({_id: req.params.id}, function(err){
 			if(err){
-				res.send(err);
+				res.status(400).send({
+					message: err
+				});
 			}else{
-				res.send("success!");
+				res.status(200).send({
+					message: "success!"
+				});
 			}
 		})
 	}else{

@@ -1,4 +1,4 @@
-.general-content {
+.general-content, #submission-content {
   position: relative;
   top: 70px;
   padding: 15px; }
@@ -30,4 +30,7 @@
   padding: 0px;
   margin: 0px; }
 
-/*# sourceMappingURL=extenders.css.map */
+#submission-content {
+  background-color: white; }
+
+/*# sourceMappingURL=main.css.map */

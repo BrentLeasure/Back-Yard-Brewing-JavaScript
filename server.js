@@ -51,7 +51,7 @@ server.use(server.sessionMiddleware);
 //End Express Session Setup
 
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.urlencoded({ extended: false }));
 server.use(express.static(__dirname + "/public"));
 
 
@@ -95,7 +95,8 @@ server.get("/getFestivals", dataScrape.getFestivals);
 //=============
 //POST ROUTES
 //=============
-server.post("/createrecipe", upload.single("image"), recipeController.createRecipe);
+// server.post("/createrecipe", upload.single("image"), recipeController.createRecipe);
+server.post("/createrecipe", recipeController.createRecipe);
 
 server.post("/addFavoriteRecipe", favRecipeController.addFavoriteRecipe);
 

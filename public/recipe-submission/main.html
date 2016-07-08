@@ -5,17 +5,36 @@
 	<title></title>
 
 	<!-- LOCAL LINKS -->
+	<link rel="stylesheet" type="text/css" href="recipe-submission/main.css">
 	<link rel="stylesheet" type="text/css" href="../navigation-bar/main.css">
+	
 
 	<!-- PULLED FROM WEB -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
 </head>
 <body>
 	<nav id='navigation-bar'></nav>
-	
+	<div id="submission-content">
+			<label>Beer Name</label></br>
+			<input id="alias" name="alias"></br>
+		<!-- 	<label>Image</label>
+			<input type="file"> -->
+			<label>Category</label></br>
+			<select>
+			</select></br>
+
+			<label>Description</label></br>
+			<textarea id="description" maxlength="500" cols="50" rows="5"></textarea></br>
+
+			<label>Instructions</label></br>
+			<textarea id="instructions" maxlength="1000" cols="50" rows"5"></textarea></br>
+
+			<input type="submit" onclick="submitRecipe()">
+	</div>
 
 	<!-- LOCAL SCRIPTS -->
 	<script type="text/javascript" src="../dist/navigation-bar.js"></script>
-	<script src="../dist/ajax.js"></script>
+	<script type="text/javascript" src="../dist/recipe-submission.js"></script>
+	<script src="../dist/ajax.js"></script>	
 </body>
 </html>
