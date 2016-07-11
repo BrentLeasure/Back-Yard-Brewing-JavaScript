@@ -51,7 +51,7 @@ server.use(server.sessionMiddleware);
 //End Express Session Setup
 
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.urlencoded({ extended: false}));
 server.use(express.static(__dirname + "/public"));
 
 
