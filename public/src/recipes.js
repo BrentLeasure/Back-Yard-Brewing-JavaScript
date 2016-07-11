@@ -1,5 +1,6 @@
 var beerTypes = [];
 var search = '';
+
 getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 	if(xhr != undefined){
 		let parent = document.getElementById('beers');

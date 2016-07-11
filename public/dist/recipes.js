@@ -2,6 +2,7 @@
 
 var beerTypes = [];
 var search = '';
+
 getRequest('getallbeertypes', undefined, function () {
 	var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
 

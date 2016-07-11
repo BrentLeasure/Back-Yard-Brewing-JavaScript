@@ -1,5 +1,6 @@
 //resets message
-document.getElementsByClassName('message').textContent = 'testing';
+document.getElementsByClassName('message').innerText = "hello";
+// console.log(x);
 
 var submitRecipe = () => {
 

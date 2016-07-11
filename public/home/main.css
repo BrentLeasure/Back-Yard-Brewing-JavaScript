@@ -1,0 +1,33 @@
+.general-content, #home-content {
+  position: relative;
+  top: 70px;
+  padding: 15px; }
+
+.list-of-buttons {
+  float: left;
+  display: inline-block;
+  width: 25%;
+  margin: 3% 3%; }
+
+.buttons {
+  background-color: transparent;
+  border: none;
+  padding: 5px 5px 5px;
+  text-align: center;
+  border: solid black 1px;
+  border-radius: 5px; }
+
+.close-button {
+  padding: 5px; }
+
+.button-hover {
+  background-color: rgba(135, 45, 46, 0.9); }
+
+.general-li {
+  list-style: none; }
+
+.general-ul {
+  padding: 0px;
+  margin: 0px; }
+
+/*# sourceMappingURL=main.css.map */

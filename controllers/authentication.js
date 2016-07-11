@@ -1,5 +1,4 @@
-var passport = require('passport');
-var userModel = require('../models/user');
+var passport = require('passport'), LocalStrategy = require('passport-local').Strategy, userModel = require('../models/user');
 
 var performLogin = function(req, res, user){
   req.login(user, function(err){
@@ -16,18 +15,18 @@ var performLogin = function(req, res, user){
 var authenticationController = {
 
   processLogin: function(req, res){
+    console.log(req.body)
     var authFunction = passport.authenticate('local', function(err, user, info){
       if(err){
         res.send(err);
       } else if(!user) {
-        var err = {err: "Your password or email is incorrect"};
-        res.send(err)
+        return res.status(400).send({message: "username or password incorrect"});
       }else{
         performLogin(req, res, user);
       }
     });
 
-    authFunction(req, res);
+    authFunction(req.body, res);
   },
 
   processSignup: function(req, res){

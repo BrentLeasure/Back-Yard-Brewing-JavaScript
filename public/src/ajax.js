@@ -1,4 +1,9 @@
 var xhr = new XMLHttpRequest();
+
+
+//=================
+//GET REQUEST
+//=================
 var getRequest = (url, urlParameter, callback = undefined) => {
 	if (urlParameter != undefined) {
 		xhr.open('GET', url + urlParameter);	
@@ -15,6 +20,10 @@ var getRequest = (url, urlParameter, callback = undefined) => {
 	}
 }
 
+
+//=================
+//POST REQUEST
+//=================
 var postRequest = (url, data, callback = undefined) => {
 	data = JSON.stringify(data);
 	xhr.open('POST', url);
@@ -30,5 +39,4 @@ var postRequest = (url, data, callback = undefined) => {
 	    	return callback(400, err);
 	    }
 	}
-
 }

@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width">
 	<title></title>
 	<!-- LOCAL LINKS -->
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="home/main.css">
 	<link rel="stylesheet" type="text/css" href="../navigation-bar/main.css">
 
 	<!-- PULLED FROM WEB -->
@@ -13,8 +13,12 @@
 </head>
 <body>
 <nav id='navigation-bar'></nav>
-<h3> </h3>
+<div id="home-content">
+	<input placeholder="username" id="username"></br>
+	<input placeholder="password" id="password" type="password"></br>
 
+	<input type="submit" onclick="login()">
+</div>
 
 <!-- LOCAL SCRIPTS -->
 <script type="text/javascript" src="../dist/navigation-bar.js"></script>

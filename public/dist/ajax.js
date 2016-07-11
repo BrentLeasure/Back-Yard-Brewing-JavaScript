@@ -1,6 +1,10 @@
 'use strict';
 
 var xhr = new XMLHttpRequest();
+
+//=================
+//GET REQUEST
+//=================
 var getRequest = function getRequest(url, urlParameter) {
 	var callback = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
 
@@ -19,6 +23,9 @@ var getRequest = function getRequest(url, urlParameter) {
 	};
 };
 
+//=================
+//POST REQUEST
+//=================
 var postRequest = function postRequest(url, data) {
 	var callback = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
 

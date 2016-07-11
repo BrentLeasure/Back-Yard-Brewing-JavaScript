@@ -1,6 +1,6 @@
 document.getElementById('navigation-bar').innerHTML = 
 '<ul>'+
-  '<li><a href="/">Home</a></li>'+
-  '<li><a href="/recipes">Recipes</a></li>'+
-  '<li><a href="about.html">Festivals</a></li>'+
+  "<li><a onclick='underline(id);' id='home-link' href='/'>Home</a></li>"+
+  "<li><a onclick='underline(id); id='recipes-link' href='/recipes'>Recipes</a></li>"+
+  "<li><a onclick='underline(id);' id='festivals-link' href='/festivals'>Festivals</a></li>"+
  '</ul>';
