@@ -38,9 +38,7 @@ getUserRecipe = function(req, res){
 		if(err){
 			res.send(err);
 		}else if(!userRecipe){
-			return res.status(404).send({
-				message: "The recipe you are looking for is not here."
-			});
+			return res.status(404).send({message: "The recipe you are looking for is not here."});
 		}else{
 			res.send(userRecipe);
 		}
@@ -67,12 +65,9 @@ getAllBeerTypes = function(req, res){
 //===================
 createRecipe = function(req, res){
 	//creating variables
-	console.log(req.body);
+	var nullVariable;
+	var body = req.body
 
-		var nullVariable;
-		var body = req.body
-		var nullVar = false;
-		var counter = 0;
 	// if(req.file === undefined){
 	// 	return res.status(400).send({
  //   			message: "You need to include a picture!"
@@ -80,45 +75,37 @@ createRecipe = function(req, res){
 	// }else{
 	// 	req.body.image = req.file;
 	// }
+
 	if(req.user){
-		//checks if any variables are null
+
 		for(variable in body){
 			if(body[variable] === null){
+
+				//if any of the variables are null, sent back with name of null variable.
 				nullVariable = variable;
-				nullVar = true;
-				break;
+				return res.status(400).send({message: "You left the" + nullVariable + "field blank"});
 			}
+
 			if(variable == "instructions"){
+				//if on instructions, check if length is over 500 characters.
 				if(body[variable].length < 500){
-					return res.status(400).send({
-   						message: "Your instructions are too short. (you need at least 500 characters)"
-					});
+					//if under 500 characters, send and error back.
+					return res.status(400).send({message: "Your instructions are too short. (you need at least 500 characters)"});
 				}
 			}
-			counter++;
 		}
-		if(nullVar || counter < 4){
-			return res.status(400).send({
-				message: "You cannot leave any of these fields blank"
-			});
-		}else{
-			var newRecipe = new recipeModel.userRecipe(req.body);
-			newRecipe.save(function(err, data){
-				if(err){
-					res.status(400).send({
-						message: err
-					});
-				}else{
-					res.status(200).send({
-						message: "success!"
-					})
-				}	
-			})
-		}
+
+		//if it passes all the requirements, then it is pushed to the server.
+		var newRecipe = new recipeModel.userRecipe(req.body);
+		newRecipe.save(function(err, data){
+			if(err){
+				res.status(400).send({message: err});
+			}else{
+				res.status(200).send({message: "success!"});
+			}	
+		})
 	}else{
-		return res.status(403).send({
-			message: "you are not logged in"
-		});
+		return res.status(403).send({message: "you are not logged in"});
 	}
 }
 
@@ -128,10 +115,10 @@ createRecipe = function(req, res){
 updateRecipe = function(req, res){
 	var err;
 	if(req.user){
+		//if logged in, update the user's reqipe
 		recipeModel.userRecipe.update({_id: req.body._id}, req.body, function(err){
 			if(err){
-				res.status(400).send({
-					message: err				});
+				res.status(400).send({message: err});
 			}else{
 				res.status(200).send({
 					message: "success!"
