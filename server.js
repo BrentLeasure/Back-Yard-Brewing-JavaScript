@@ -73,6 +73,10 @@ server.get("/recipes", function(req, res){
 server.get("/submitrecipe", function(req, res){
 	res.sendFile("/main.html", {root: "./public/recipe-submission"})
 });
+server.get("/user/:id", function(req, res){
+	res.sendFile("/main.html", {root: "./public/user"})
+});
+
 
 
 server.get("/beer/:beerAlias", recipeController.getRecipes);
