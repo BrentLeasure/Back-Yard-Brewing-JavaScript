@@ -8,7 +8,7 @@ var login = function login() {
 	login.email = document.getElementById('email').value;
 	login.password = document.getElementById('password').value;
 
-	postRequest('/auth/login', login, function (num, user) {
+	postRequest('/auth/login', login, 'application/json', function (num, user) {
 		console.log(user);
 	});
 };
