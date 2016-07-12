@@ -1,9 +1,15 @@
-//resets message
 document.addEventListener("DOMContentLoaded", (event) => {
+	//when the page is loaded, run these functions
+
+	//request beer types
 	getRequest('/recipes/getallbeertypes', undefined, (num, beerTypes) =>{
+
 		if(num === 200){
+			//if request is successfull, run this code
 			let select = document.getElementById('beer-type-selection');
+
 			for(let beer = 0; beer < beerTypes.length; beer++){
+				//loop through and set select options to each beer type
 				let option = document.createElement('option');
 				option.innerHTML = beerTypes[beer].alias;
 				option.value = beerTypes[beer].alias;
