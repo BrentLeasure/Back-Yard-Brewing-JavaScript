@@ -7,7 +7,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		if(num === 200){
 			//if request is successfull, run this code
 			let select = document.getElementById('beer-type-selection');
-
+			//sets first option to null
+			let option = document.createElement('option');
+			option.innerHTML = '-- Select One --'
+			option.value = null;
+			select.appendChild(option);
 			for(let beer = 0; beer < beerTypes.length; beer++){
 				//loop through and set select options to each beer type
 				let option = document.createElement('option');
@@ -24,11 +28,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 var submitRecipe = () => {
 
 	//sets the recipe object and its keys
-	let recipe = {alias: null, description: null, instructions: null};
+	let recipe = {alias: null, description: null, category: null, instructions: null};
 
 	//sets the recipe object key's to the user's inputs
 	recipe.alias = document.getElementById('alias').value;
 	recipe.description = document.getElementById('description').value;
+	recipe.category = document.getElementById('beer-type-selection').value;
 	recipe.instructions = document.getElementById('instructions').value;
 
 	//posts to the server
