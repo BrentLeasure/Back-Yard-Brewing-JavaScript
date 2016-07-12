@@ -1,11 +1,10 @@
 var beerTypes = [];
 var search = '';
 
-getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
-	if(xhr != undefined){
+getRequest('getallbeertypes', undefined, (num, beerTypes) =>{
+	if(num == 200){
 		let parent = document.getElementById('beers');
 		let docfrag = document.createDocumentFragment();
-		beerTypes = JSON.parse(xhr.responseText);
 		
 		//loop through beerTypes to append a button to each list item
 		for (let beer = 0; beer < beerTypes.length; beer++){
@@ -31,6 +30,8 @@ getRequest('getallbeertypes', undefined, (xhr = undefined) =>{
 
 		//display on DOM element
 		parent.appendChild(docfrag);
+	}else{
+		console.log(data.message);
 	}
 });		
 

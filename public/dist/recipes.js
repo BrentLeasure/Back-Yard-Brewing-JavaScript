@@ -3,13 +3,10 @@
 var beerTypes = [];
 var search = '';
 
-getRequest('getallbeertypes', undefined, function () {
-	var xhr = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
-
-	if (xhr != undefined) {
+getRequest('getallbeertypes', undefined, function (num, beerTypes) {
+	if (num == 200) {
 		var parent = document.getElementById('beers');
 		var docfrag = document.createDocumentFragment();
-		beerTypes = JSON.parse(xhr.responseText);
 
 		//loop through beerTypes to append a button to each list item
 		for (var beer = 0; beer < beerTypes.length; beer++) {
@@ -35,6 +32,8 @@ getRequest('getallbeertypes', undefined, function () {
 
 		//display on DOM element
 		parent.appendChild(docfrag);
+	} else {
+		console.log(data.message);
 	}
 });
 

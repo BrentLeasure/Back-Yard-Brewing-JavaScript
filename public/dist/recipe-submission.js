@@ -1,8 +1,19 @@
 'use strict';
 
 //resets message
-document.getElementsByClassName('message').innerText = "hello";
-// console.log(x);
+document.addEventListener("DOMContentLoaded", function (event) {
+	getRequest('/recipes/getallbeertypes', undefined, function (num, beerTypes) {
+		if (num === 200) {
+			var select = document.getElementById('beer-type-selection');
+			for (var beer = 0; beer < beerTypes.length; beer++) {
+				var option = document.createElement('option');
+				option.innerHTML = beerTypes[beer].alias;
+				option.value = beerTypes[beer].alias;
+				select.appendChild(option);
+			}
+		}
+	});
+});
 
 var submitRecipe = function submitRecipe() {
 
@@ -15,12 +26,14 @@ var submitRecipe = function submitRecipe() {
 	recipe.instructions = document.getElementById('instructions').value;
 
 	//posts to the server
-	postRequest("/createrecipe", recipe, function (num, err) {
+	postRequest("/createrecipe", recipe, 'application/json', function (num, err) {
 		if (num === 400) {
 			//if error, then display error message, othewise show success
-			message = err.message;
+			document.getElementsByClassName('message')[0].style.color = 'red';
+			document.getElementsByClassName('message')[0].innerHTML = err.message;
 		} else {
-			message = "sucess!";
+			document.getElementsByClassName('message')[0].style.color = 'green';
+			document.getElementsByClassName('message')[0].innerHTML = "success!";
 		}
 	});
 };

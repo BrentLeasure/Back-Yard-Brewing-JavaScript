@@ -3,9 +3,9 @@
 var login = function login() {
 
 	//setting user
-	var login = { username: null, password: null };
+	var login = { email: null, password: null };
 
-	login.username = document.getElementById('username').value;
+	login.email = document.getElementById('email').value;
 	login.password = document.getElementById('password').value;
 
 	postRequest('/auth/login', login, function (num, user) {

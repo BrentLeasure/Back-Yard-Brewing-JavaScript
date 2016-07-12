@@ -16,9 +16,9 @@ var getRequest = function getRequest(url, urlParameter) {
 	xhr.send(null);
 	xhr.onload = function () {
 		if (xhr.status == 200) {
-			return callback(xhr);
+			return callback(200, JSON.parse(xhr.responseText));
 		} else {
-			return;
+			return callback(400, JSON.parse(xhr.responseText));
 		}
 	};
 };
@@ -26,12 +26,12 @@ var getRequest = function getRequest(url, urlParameter) {
 //=================
 //POST REQUEST
 //=================
-var postRequest = function postRequest(url, data) {
-	var callback = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
+var postRequest = function postRequest(url, data, MIMEType) {
+	var callback = arguments.length <= 3 || arguments[3] === undefined ? undefined : arguments[3];
 
 	data = JSON.stringify(data);
 	xhr.open('POST', url);
-	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.setRequestHeader('Content-Type', MIMEType);
 	xhr.send(data);
 
 	xhr.onload = function () {

@@ -13,9 +13,9 @@ var getRequest = (url, urlParameter, callback = undefined) => {
 	xhr.send(null);
 	xhr.onload = () => {
 		if(xhr.status == 200){
-			return callback(xhr);
+			return callback(200, JSON.parse(xhr.responseText));
 		}else{
-			return;
+			return callback(400, JSON.parse(xhr.responseText));
 		}
 	}
 }
@@ -24,10 +24,10 @@ var getRequest = (url, urlParameter, callback = undefined) => {
 //=================
 //POST REQUEST
 //=================
-var postRequest = (url, data, callback = undefined) => {
+var postRequest = (url, data, MIMEType, callback = undefined) => {
 	data = JSON.stringify(data);
 	xhr.open('POST', url);
-	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.setRequestHeader('Content-Type', MIMEType);
 	xhr.send(data);
 
 	xhr.onload = () => {
