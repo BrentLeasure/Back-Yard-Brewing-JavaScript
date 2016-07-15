@@ -136,7 +136,7 @@ server.get('/api/me', function(req, res){
 		req.user.password = "none of your damn business";
 		res.send(req.user)
 	}else{
-		res.send(false);
+		res.status(400).send({message: "user not found"});
 	}
 })
 

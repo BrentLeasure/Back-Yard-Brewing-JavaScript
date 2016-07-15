@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	//when the page is loaded, run these functions
 
 	//request beer types
-	getRequest('/recipes/getallbeertypes', undefined, function (num, beerTypes) {
+	getRequest('/recipes/getallbeertypes', undefined, function (status, beerTypes) {
 
-		if (num === 200) {
+		if (status === 200) {
 			//if request is successfull, run this code
 			var select = document.getElementById('beer-type-selection');
 			//sets first option to null
@@ -37,8 +37,8 @@ var submitRecipe = function submitRecipe() {
 	recipe.instructions = document.getElementById('instructions').value;
 
 	//posts to the server
-	postRequest("/createrecipe", recipe, 'application/json', function (num, err) {
-		if (num === 400) {
+	postRequest("/createrecipe", recipe, 'application/json', function (status, err) {
+		if (status === 400) {
 			//if error, then display error message, othewise show success
 			document.getElementsByClassName('message')[0].style.color = 'red';
 			document.getElementsByClassName('message')[0].innerHTML = err.message;

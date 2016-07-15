@@ -1,8 +1,8 @@
 var beerTypes = [];
 var search = '';
 
-getRequest('getallbeertypes', undefined, (num, beerTypes) =>{
-	if(num == 200){
+getRequest('getallbeertypes', undefined, (status, beerTypes) =>{
+	if(status == 200){
 		let parent = document.getElementById('beers');
 		let docfrag = document.createDocumentFragment();
 		

@@ -1,0 +1,6 @@
+@import '../scss/variables';
+@import '../scss/extenders';
+
+#user-profile-content{
+	@extend .general-content;
+}

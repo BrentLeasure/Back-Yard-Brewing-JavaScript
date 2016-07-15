@@ -3,8 +3,8 @@
 var beerTypes = [];
 var search = '';
 
-getRequest('getallbeertypes', undefined, function (num, beerTypes) {
-	if (num == 200) {
+getRequest('getallbeertypes', undefined, function (status, beerTypes) {
+	if (status == 200) {
 		var parent = document.getElementById('beers');
 		var docfrag = document.createDocumentFragment();
 
