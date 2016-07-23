@@ -1,5 +1,9 @@
 @import 'variables';
 
+body{
+		background-color: $mainBackgroundColor;
+}
+
 .general-content{
 	position: relative;
 	top: 70px;
@@ -37,4 +41,10 @@
 .general-ul{
 	padding: 0px;
 	margin: 0px;
+}
+
+.general-input-box{
+	border: 2px solid $borderColor;
+	border-radius: 5px;
+	margin: 10px 5px 10px;
 }

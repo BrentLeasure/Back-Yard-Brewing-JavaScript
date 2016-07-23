@@ -1,3 +1,6 @@
+body {
+  background-color: #F3EFE0; }
+
 .general-content, #content {
   position: relative;
   top: 70px;
@@ -29,6 +32,11 @@
 .general-ul, #content #beer-list #beers, #content #recipes {
   padding: 0px;
   margin: 0px; }
+
+.general-input-box, #content #search-beers {
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 10px 5px 10px; }
 
 #content #beer-list .submit-recipe {
   position: relative;

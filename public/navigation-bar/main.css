@@ -1,3 +1,6 @@
+body {
+  background-color: #F3EFE0; }
+
 .general-content {
   position: relative;
   top: 70px;
@@ -30,6 +33,11 @@
   padding: 0px;
   margin: 0px; }
 
+.general-input-box, #home-content .login-input-box {
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 10px 5px 10px; }
+
 #navigation-bar {
   z-index: 25;
   width: 100%;
@@ -39,12 +47,18 @@
   #navigation-bar ul {
     padding-left: 5px; }
     #navigation-bar ul li {
+      margin: 0px 20px 0px 20px;
       display: inline; }
+      #navigation-bar ul li button {
+        padding: 0px;
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        color: white; }
       #navigation-bar ul li a {
         color: white;
-        margin: 0px 20px 0px 0px;
         text-decoration: none; }
       #navigation-bar ul li:hover {
-        text-decoration: underline; }
+        border-bottom: 1px solid white; }
 
 /*# sourceMappingURL=main.css.map */

@@ -11,16 +11,29 @@
 	ul{	
 		padding-left: 5px;
 		li{
+			margin: 0px 20px 0px 20px;
+			button{
+				padding: 0px;
+				display: inline-block;
+				background-color: transparent;
+				border: none;
+				color: $navigationFontColor;
+			}
 			a{
 				color: $navigationFontColor;
-				margin: 0px 20px 0px 0px;
 				text-decoration: none;
 			}
 			&:hover{
-				text-decoration: underline;
+				border-bottom: 1px solid $navigationFontColor;
 			}
 			display: inline;
 			@extend .general-li;
 		}
+	}
+}
+
+#home-content{
+	.login-input-box{
+		@extend .general-input-box;
 	}
 }

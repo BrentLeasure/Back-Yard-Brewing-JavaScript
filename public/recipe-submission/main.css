@@ -1,3 +1,6 @@
+body {
+  background-color: #F3EFE0; }
+
 .general-content, #submission-content {
   position: relative;
   top: 70px;
@@ -30,7 +33,9 @@
   padding: 0px;
   margin: 0px; }
 
-#submission-content {
-  background-color: white; }
+.general-input-box {
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 10px 5px 10px; }
 
 /*# sourceMappingURL=main.css.map */

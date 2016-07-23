@@ -4,6 +4,9 @@
 #content{
 	@extend .general-content;
 	
+	#search-beers{
+		@extend .general-input-box;
+	}
 	#beer-list{
 		#beers{
 			@extend .general-ul;
