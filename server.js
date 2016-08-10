@@ -27,7 +27,7 @@ var server = express();
 //===================
 //CONTROLLERS
 //===================
-var recipeController = require("./controllers/recipeController");
+var recipes = require("./controllers/recipes/index");
 var favRecipeController = require("./controllers/favRecipeController");
 var authenticationController = require('./controllers/authentication');
 var imageController = require("./controllers/imageController");
@@ -79,16 +79,16 @@ server.get("/user/:id", function(req, res){
 
 
 
-server.get("/beer/:beerAlias", recipeController.getRecipes);
+server.get("/beer/:beerAlias", recipes.Get.GetByBeerType);
 
-server.get("/recipes/getallbeertypes", recipeController.getAllBeerTypes);
+server.get("/recipes/getallbeertypes", recipes.Get.GetAllBeerTypes);
 
 server.get("/getImage/", imageController.getImage);
 
 //MULTIPLE RECIPES
-server.get("/getuserrecipes/:_id", recipeController.getUserRecipes);
+server.get("/getuserrecipes/:_id", recipes.Get.GetUserRecipes);
 //SINGLE RECIPE
-server.get("/getuserrecipe/:_id", recipeController.getUserRecipe);
+server.get("/getuserrecipe/:_id", recipes.Get.GetUserRecipe);
 
 server.get("/getFavoriteRecipes", favRecipeController.getFavoriteRecipes);
 
@@ -99,22 +99,22 @@ server.get("/getFestivals", dataScrape.getFestivals);
 //=============
 //POST ROUTES
 //=============
-// server.post("/createrecipe", upload.single("image"), recipeController.createRecipe);
-server.post("/createrecipe", recipeController.createRecipe);
+// server.post("/createrecipe", upload.single("image"), recipes.createRecipe);
+server.post("/createrecipe", recipes.Post.PostRecipe);
 
 server.post("/addFavoriteRecipe", favRecipeController.addFavoriteRecipe);
 
 //=============
 //PUT ROUTES
 //=============
-server.put("/updaterecipe", recipeController.updateRecipe);
-// server.put("/updaterecipe", recipeController.updateRecipe);
+server.put("/updaterecipe", recipes.Update.UpdateRecipe);
+// server.put("/updaterecipe", recipes.updateRecipe);
 server.put("/removeFavoriteRecipe", favRecipeController.removeFavoriteRecipe);	
 
 //==============
 //DELETE ROUTES
 //==============
-server.delete("/deleterecipe/:id", recipeController.deleteRecipe);
+server.delete("/deleterecipe/:id", recipes.Delete.DeleteRecipe);
 
 
 
