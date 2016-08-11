@@ -1,3 +1,4 @@
+var recipeModel = require("../../models/recipes");
 //===================
 //CREATE RECIPE
 //===================

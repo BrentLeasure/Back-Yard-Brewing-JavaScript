@@ -1,5 +1,10 @@
 body {
-  background-color: #F3EFE0; }
+  background-color: #F3EFE0;
+  background-image: url(../LogoWhite.png);
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; }
 
 .general-content, #user-profile-content {
   position: relative;

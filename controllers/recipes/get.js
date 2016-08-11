@@ -1,3 +1,4 @@
+var recipeModel = require("../../models/recipes");
 //================
 // GET ALL RECIPES IN SELECTED CATEGORY
 //================
