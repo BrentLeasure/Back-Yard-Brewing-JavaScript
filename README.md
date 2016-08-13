@@ -23,6 +23,10 @@
   * userrecipes
   * users
 
-5. Install `nodemon` using `npm install -g nodemon`. This will be used to start your local host.
+5. use the following command to push the `beertypes.json` file into your `beertypes` collection: 
 
-6. Run `nodemon server.js` to start your local site at `localhost:3000`.
+  `mongoimport --db BackYardBrewing --collection beertypes --file beertypes.json`
+
+6. Install `nodemon` using `npm install -g nodemon`. This will be used to start your local host.
+
+7. Run `nodemon server.js` to start your local site at `localhost:3000`.
