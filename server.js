@@ -63,18 +63,18 @@ server.use(passport.session());
 //GET ROUTES
 //==============
 server.get("/", function(req, res){
-	res.sendFile("/main.html", {root: "./public/home"})
+	res.sendFile("/home.html", {root: "./public/html"})
 });
 
 server.get("/recipes", function(req, res){
-	res.sendFile("/main.html", {root: "./public/recipes"})
+	res.sendFile("/recipes.html", {root: "./public/html"})
 });
 
 server.get("/submitrecipe", function(req, res){
-	res.sendFile("/main.html", {root: "./public/recipe-submission"})
+	res.sendFile("/recipe-submission.html", {root: "./public/html"})
 });
 server.get("/user/:id", function(req, res){
-	res.sendFile("/main.html", {root: "./public/user"})
+	res.sendFile("/user.html", {root: "./public/html"})
 });
 
 
