@@ -1,5 +1,5 @@
-@import '../scss/extenders';
-@import '../scss/mixins';
+@import './directives/extenders';
+@import './directives/mixins';
 
 #content{
 	@extend .general-content;

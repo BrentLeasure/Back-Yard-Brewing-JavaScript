@@ -1,0 +1,6 @@
+@import './directives/variables';
+@import './directives/extenders';
+
+#user-profile-content{
+	@extend .general-content;
+}

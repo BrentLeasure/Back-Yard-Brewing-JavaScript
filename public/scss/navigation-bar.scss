@@ -1,5 +1,5 @@
-@import '../scss/extenders';
-@import '../scss/variables';
+@import './directives/extenders';
+@import './directives/variables';
 
 #navigation-bar{
 	z-index: 25;

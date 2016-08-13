@@ -1,0 +1,7 @@
+@import './directives/extenders';
+@import './directives/mixins';
+
+
+#home-content{
+	@extend .general-content;
+}
