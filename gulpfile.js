@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-// var babel = require('gulp-babel');
+var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var uglifycss = require('gulp-uglifycss');
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'babel']);
 
 gulp.task('sass', function(){
 	return gulp.src(['./public/scss/*.scss', './public/scss/directives/*.scss'])
@@ -15,6 +15,16 @@ gulp.task('sass', function(){
 			"uglyComments": true,
 		}))
 		.pipe(gulp.dest('public/uglify/css'))
+});
+
+gulp.task('babel', function(){
+	return gulp.src('./public/js/*.js')
+		.pipe(babel({
+			presets: ['es2015']
+		}))
+		.pipe(concat('bundle.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('./public/uglify/js/'))
 });
 
 gulp.watch('./public/**/*.scss', ['sass']);

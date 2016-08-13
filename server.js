@@ -81,7 +81,7 @@ server.get("/user/:id", function(req, res){
 
 server.get("/beer/:beerAlias", recipes.Get.GetByBeerType);
 
-server.get("/recipes/getallbeertypes", recipes.Get.GetAllBeerTypes);
+server.get("/getallbeertypes", recipes.Get.GetAllBeerTypes);
 
 server.get("/getImage/", imageController.getImage);
 

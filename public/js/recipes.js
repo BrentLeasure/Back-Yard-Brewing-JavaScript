@@ -1,41 +1,43 @@
 var beerList = [];
 var search = '';
 
-getRequest('getallbeertypes', undefined, (status, returnData) =>{
-	if(status == 200){
-		//setting beerList to the returnData
-		beerList = returnData;
-		let parent = document.getElementById('beers');
-		let docfrag = document.createDocumentFragment();
-		
-		//loop through beerTypes to append a button to each list item
-		for (let beer = 0; beer < returnData.length; beer++){
-			//create necessary elements
-			let li = document.createElement('li');
-			let button = document.createElement('BUTTON');
+var ready = function(){
+	getRequest('getallbeertypes', undefined, (status, returnData) =>{
+		if(status == 200){
+			//setting beerList to the returnData
+			beerList = returnData;
+			let parent = document.getElementById('beers');
+			let docfrag = document.createDocumentFragment();
+			
+			//loop through beerTypes to append a button to each list item
+			for (let beer = 0; beer < returnData.length; beer++){
+				//create necessary elements
+				let li = document.createElement('li');
+				let button = document.createElement('BUTTON');
 
-			//set text content to list item
-			li.textContent = returnData[beer].alias;
+				//set text content to list item
+				li.textContent = returnData[beer].alias;
 
-			//append list item to button
-			button.appendChild(li);
+				//append list item to button
+				button.appendChild(li);
 
-			// add onclick attribute
-			button.setAttribute("value", beer);
-			button.setAttribute("name", returnData[beer].alias);
-			button.setAttribute("onclick", "moreInfo(this.getAttribute('value'))");
-			button.className = 'beer-buttons';
+				// add onclick attribute
+				button.setAttribute("value", beer);
+				button.setAttribute("name", returnData[beer].alias);
+				button.setAttribute("onclick", "moreInfo(this.getAttribute('value'))");
+				button.className = 'beer-buttons';
 
-			//append button to document fragment
-			docfrag.appendChild(button);
+				//append button to document fragment
+				docfrag.appendChild(button);
+			}
+
+			//display on DOM element
+			parent.appendChild(docfrag);
+		}else{
+			console.log(returnData.message);
 		}
-
-		//display on DOM element
-		parent.appendChild(docfrag);
-	}else{
-		console.log(returnData.message);
-	}
-});		
+	});	
+}	
 
 
 
