@@ -73,8 +73,13 @@ server.get("/recipes", function(req, res){
 server.get("/submitrecipe", function(req, res){
 	res.sendFile("/recipe-submission.html", {root: "./public/html"})
 });
+
 server.get("/user/:id", function(req, res){
 	res.sendFile("/user.html", {root: "./public/html"})
+});
+
+server.get("/Festivals", function(req, res){
+	res.sendFile("/festivals.html", {root: "./public/html"})
 });
 
 
