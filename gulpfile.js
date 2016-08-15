@@ -4,8 +4,15 @@ var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var uglifycss = require('gulp-uglifycss');
+var nodemon = require('gulp-nodemon');
 
-gulp.task('default', ['sass', 'babel']);
+gulp.task('default', ['sass', 'babel', 'nodemon']);
+
+
+gulp.task('nodemon', function () {
+  nodemon({ script: 'server.js'
+          , ext: 'html js'})
+})
 
 gulp.task('sass', function(){
 	return gulp.src(['./public/scss/*.scss', './public/scss/directives/*.scss'])
@@ -27,4 +34,5 @@ gulp.task('babel', function(){
 		.pipe(gulp.dest('./public/uglify/js/'))
 });
 
-gulp.watch('./public/**/*.scss', ['sass']);
+gulp.watch('./public/scss/*.scss', ['sass']);
+gulp.watch('./public/js/*.js', ['babel']);

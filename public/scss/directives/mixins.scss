@@ -2,3 +2,10 @@
 	height: $height;
 	width: $width;
 }
+
+@mixin column($height, $width){
+	float: left;
+	width: $width;
+	height: $height;
+	margin: 0% 1% 0%;
+}

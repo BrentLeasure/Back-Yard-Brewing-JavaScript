@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	//when the page is loaded, run these functions
 
 	//request beer types
-	getRequest('/recipes/getallbeertypes', undefined, (status, beerTypes) =>{
+	GetRequest('/recipes/getallbeertypes', undefined, (status, beerTypes) =>{
 
 		if(status === 200){
 			//if request is successfull, run this code
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-var submitRecipe = () => {
+var SubmitRecipe = () => {
 
 	//sets the recipe object and its keys
 	let recipe = {alias: null, description: null, category: null, instructions: null};

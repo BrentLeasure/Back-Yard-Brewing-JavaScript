@@ -1,8 +1,9 @@
 var beerList = [];
 var search = '';
 
-var ready = function(){
-	getRequest('getallbeertypes', undefined, (status, returnData) =>{
+var RecipesReady = () =>{
+	//when page loads, this will be ran
+	GetRequest('getallbeertypes', undefined, (status, returnData) =>{
 		if(status == 200){
 			//setting beerList to the returnData
 			beerList = returnData;
@@ -41,9 +42,8 @@ var ready = function(){
 
 
 
-var moreInfo = (beer) => {
-	console.log(beer);
-	getRequest('/beer/', beerList[beer].alias, (num, data)=>{
+var MoreInfo = (beer) => {
+	GetRequest('/beer/', beerList[beer].alias, (num, data)=>{
 		if(num == 200){
 			//removing any previous nodes from previous calls
 			document.getElementById('user-recipes').innerHTML = "";
@@ -84,13 +84,13 @@ var moreInfo = (beer) => {
 }
 
 
-var closeBeerWindow = () =>{
+var CloseBeerWindow = () =>{
 	//displays the beer-list and hides the recipes 
 	document.getElementById('beer-list').style.display = 'inline-block';
 	document.getElementById('recipes').style.display = 'none';
 }
 
-var searchBeerList = (search) =>{
+var SearchBeerList = (search) =>{
 	if(search != ''){
 		//If the search isn't empty, checks which beers match the search criteria
 		for(let beer = 0; beer < beerList.length; beer++){

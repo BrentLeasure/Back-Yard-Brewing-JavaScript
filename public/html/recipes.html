@@ -11,18 +11,18 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
 
 </head>
-<body onload="ready()">
+<body onload="RecipesReady()">
 	<nav id='navigation-bar'></nav>
 	<div id='content'>
 		<div id="beer-list">
-		<input placeholder = "search beers" id="search-beers" onkeyup="searchBeerList(document.getElementById('search-beers').value)">
+		<input placeholder = "search beers" id="search-beers" onkeyup="SearchBeerList(document.getElementById('search-beers').value)">
 		<a class="submit-recipe" href="/submitrecipe">Submit a recipe!</a>
 			<ul id='beers'>
 				
 			</ul>
 		</div>
 		<div id='recipes'>
-			<button class="close" onclick="closeBeerWindow()">x</button>
+			<button class="close" onclick="CloseBeerWindow()">x</button>
 			<h3 id='title'></h3>
 			<p id="abv">Abv: </p>
 			<p id="about"></p>

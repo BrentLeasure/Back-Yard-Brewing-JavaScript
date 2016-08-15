@@ -1,14 +1,15 @@
 @import './directives/extenders';
 @import './directives/variables';
+@import './directives/mixins';
 
 #festivals-content{
-	.col{
-	
+	@extend .general-content;
+	.festival-col{
+		@include column(500px, 45%);
 	}
 	#festivals{
 		border: 3px solid white;
 		border-radius: 5px;
-		height: 500px;
-		width: 500px;
+		@include heightWidth(500px, 48%);
 	}
 }
