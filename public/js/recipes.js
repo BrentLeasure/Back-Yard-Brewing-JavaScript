@@ -25,7 +25,7 @@ var RecipesReady = () =>{
 				// add onclick attribute
 				button.setAttribute("value", beer);
 				button.setAttribute("name", returnData[beer].alias);
-				button.setAttribute("onclick", "moreInfo(this.getAttribute('value'))");
+				button.setAttribute("onclick", "MoreInfo(this.getAttribute('value'))");
 				button.className = 'beer-buttons';
 
 				//append button to document fragment
