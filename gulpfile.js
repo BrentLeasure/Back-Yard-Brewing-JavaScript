@@ -11,7 +11,7 @@ gulp.task('default', ['sass', 'babel', 'nodemon']);
 
 gulp.task('nodemon', function () {
   nodemon({ script: 'server.js'
-          , ext: 'html js'})
+          , ext: 'html js scss'})
 })
 
 gulp.task('sass', function(){

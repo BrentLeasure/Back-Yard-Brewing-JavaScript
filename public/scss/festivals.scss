@@ -4,10 +4,22 @@
 
 #festivals-content{
 	@extend .general-content;
+
 	.festival-col{
+		#festivals{
+			border-top: 3px solid white;
+			border-bottom: 3px solid white;
+			@include heightWidth(600px, 90%);
+			overflow: auto;
+		}
+		li{
+			@extend .general-li;
+		}
 		@include column(500px, 45%);
 	}
-	#festivals{
+	
+	#festivals-map{
+		top: 15px;
 		border: 3px solid white;
 		border-radius: 5px;
 		@include heightWidth(500px, 48%);

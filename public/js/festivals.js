@@ -17,13 +17,16 @@ var FestivalsReady = () =>{
 			//if get request is successful, then create a google maps marker
 			//for each of the events in festivals.
 			let events = festivals.events;
+			//set parent to 'festivals' id
+			let parent = document.getElementById('festivals');
 
 			for(let beerEvent = 0; beerEvent < events.length; beerEvent++){
-				let parent = document.getElementById('festivals')
+				//create necessary document elements
 				let li = document.createElement('li');
 				let h1 = document.createElement('h1');
 				let p = document.createElement('p');
 
+				//setting text content of document elements
 				h1.textContent = events[beerEvent].title;
 				p.textContent = events[beerEvent].location;
 
@@ -32,7 +35,7 @@ var FestivalsReady = () =>{
 				li.appendChild(p);
 
 				if(events[beerEvent].location != 'N/A'){
-					//if the lat long coordinates exist, make a marker.
+					//if the lat long coordinates exist, make a marker and attribute
 					marker.push(CreateMarker(events[beerEvent]));
 					li.setAttribute("value", events[beerEvent]._id);
 					li.setAttribute("onmouseover", "OpenInfoWindow(this.getAttribute('value'))");
