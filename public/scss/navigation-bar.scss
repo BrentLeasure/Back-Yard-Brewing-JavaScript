@@ -12,10 +12,12 @@
 		padding-left: 5px;
 		li{
 			margin: 0px 20px 0px 20px;
-			button{
+			a{
 				#logout{
 					display: none;
 				}
+			}
+			button{
 				padding: 0px;
 				display: inline-block;
 				background-color: transparent;
