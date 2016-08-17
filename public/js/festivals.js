@@ -1,6 +1,7 @@
 var festivalMap;
 var lastMarker;
 var marker = [];
+var previousID;
 
 var InitMap = () => {
 	//initialize google map on festival page on load
@@ -22,6 +23,7 @@ var FestivalsReady = () =>{
 
 			for(let beerEvent = 0; beerEvent < events.length; beerEvent++){
 				//create necessary document elements
+				let div = document.createElement('div');
 				let li = document.createElement('li');
 				let h1 = document.createElement('h1');
 				let p = document.createElement('p');
@@ -33,23 +35,32 @@ var FestivalsReady = () =>{
 				//append h1 and p tags to list
 				li.appendChild(h1);
 				li.appendChild(p);
+				//then append list item to div
+				div.appendChild(li);
 
 				if(events[beerEvent].location != 'N/A'){
 					//if the lat long coordinates exist, make a marker and attribute
 					marker.push(CreateMarker(events[beerEvent]));
-					li.setAttribute("value", events[beerEvent]._id);
-					li.setAttribute("onmouseover", "OpenInfoWindow(this.getAttribute('value'))");
+					div.setAttribute("value", events[beerEvent]._id);
+					div.setAttribute("id", beerEvent);
+					div.setAttribute("onmouseover", "OpenInfoWindow(this.getAttribute('value'), this.getAttribute('id'))");
 				}
 
 				//append to 'festivals' ul
-				parent.appendChild(li);
+				parent.appendChild(div);
 			}
 		}
 	});
 }
 
 
-var OpenInfoWindow = (eventID) =>{
+var OpenInfoWindow = (eventID, id) =>{
+	if(previousID != null){
+		document.getElementById(previousID).style.color = '#000000';
+	}
+	previousID = id;
+	document.getElementById(id).style.color = '#872d2e';
+
 	//if someone hovers over a beer event, then this function runs
 	for(let position = 0; position < marker.length; position++){
 		if(eventID == marker[position]._id){

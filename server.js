@@ -28,7 +28,7 @@ var server = express();
 //CONTROLLERS
 //===================
 var recipes = require("./controllers/recipes/index");
-var favRecipeController = require("./controllers/favRecipeController");
+var favoriteRecipes = require("./controllers/favorite-recipes/index");
 var authenticationController = require('./controllers/authentication');
 var imageController = require("./controllers/imageController");
 var dataScrape = require("./controllers/dataScrape");
@@ -95,7 +95,7 @@ server.get("/getuserrecipes/:_id", recipes.Get.GetUserRecipes);
 //SINGLE RECIPE
 server.get("/getuserrecipe/:_id", recipes.Get.GetUserRecipe);
 
-server.get("/getFavoriteRecipes", favRecipeController.getFavoriteRecipes);
+server.get("/getFavoriteRecipes", favoriteRecipes.Get.GetFavoriteRecipes);
 
 server.get("/getFestivals", dataScrape.getFestivals);
 
@@ -107,19 +107,20 @@ server.get("/getFestivals", dataScrape.getFestivals);
 // server.post("/createrecipe", upload.single("image"), recipes.createRecipe);
 server.post("/createrecipe", recipes.Post.PostRecipe);
 
-server.post("/addFavoriteRecipe", favRecipeController.addFavoriteRecipe);
+server.post("/addFavoriteRecipe", favoriteRecipes.Post.AddFavoriteRecipe);
 
 //=============
 //PUT ROUTES
 //=============
 server.put("/updaterecipe", recipes.Update.UpdateRecipe);
 // server.put("/updaterecipe", recipes.updateRecipe);
-server.put("/removeFavoriteRecipe", favRecipeController.removeFavoriteRecipe);	
+
 
 //==============
 //DELETE ROUTES
 //==============
 server.delete("/deleterecipe/:id", recipes.Delete.DeleteRecipe);
+server.put("/removeFavoriteRecipe", favoriteRecipes.Delete.RemoveFavoriteRecipe);	
 
 
 
