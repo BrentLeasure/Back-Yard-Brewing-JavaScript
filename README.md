@@ -29,4 +29,4 @@
 
 6. Install `nodemon` using `npm install -g nodemon`. This will be used to start your local host.
 
-7. Run `nodemon server.js` to start your local site at `localhost:3000`.
+7. Run `gulp` to start your local site at `localhost:3000`.
