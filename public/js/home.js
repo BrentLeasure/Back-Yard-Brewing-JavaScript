@@ -1,7 +1,3 @@
-var HomeReady = () =>{
-	document.getElementById('logout').style.display = 'none';
-}
-
 var Login = () => {
 
 	//setting user parameters
