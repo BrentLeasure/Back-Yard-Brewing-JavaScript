@@ -4,75 +4,85 @@ var marker = [];
 var previousID;
 
 var InitMap = () => {
+
 	//initialize google map on festival page on load
-	festivalMap = new google.maps.Map(document.getElementById('festivals-map'), {
-	  center: {lat: 39.244785, lng: -105.511852},
+	festivalMap = new google.maps.Map( document.getElementById( 'festivals-map' ), {
+	  center: { lat: 39.244785, lng: -105.511852 },
 	  zoom: 8
 	});
+
 }
 
-var FestivalsReady = () =>{
+var FestivalsReady = () => {
+	console.log("testing" + festivals);
 	//onload, this function is ran
-	GetRequest('/getFestivals', undefined, (status, festivals)=>{
-		if(status == 200){
-			//if get request is successful, then create a google maps marker
+	GetRequest( '/getFestivals', undefined, ( status, festivals ) => {
+
+		
+		//if get request is successful, then create a google maps marker
+		if ( status == 200 ){	
 			//for each of the events in festivals.
 			let events = festivals.events;
 			//set parent to 'festivals' id
 			let parent = document.getElementById('festivals');
 
-			for(let beerEvent = 0; beerEvent < events.length; beerEvent++){
+			for ( let beerEvent = 0; beerEvent < events.length; beerEvent++ ){
 				//create necessary document elements
-				let div = document.createElement('div');
-				let li = document.createElement('li');
-				let h1 = document.createElement('h1');
-				let p = document.createElement('p');
+				let div = document.createElement( 'div' );
+				let li = document.createElement( 'li' );
+				let h1 = document.createElement( 'h1' );
+				let p = document.createElement( 'p' );
 
 				//setting text content of document elements
 				h1.textContent = events[beerEvent].title;
 				p.textContent = events[beerEvent].location;
 
 				//append h1 and p tags to list
-				li.appendChild(h1);
-				li.appendChild(p);
+				li.appendChild( h1 );
+				li.appendChild( p );
 				//then append list item to div
-				div.appendChild(li);
+				div.appendChild( li );
 
-				if(events[beerEvent].location != 'N/A'){
+				if ( events[beerEvent].location != 'N/A' ) {
 					//if the lat long coordinates exist, make a marker and attribute
-					marker.push(CreateMarker(events[beerEvent]));
-					div.setAttribute("value", events[beerEvent]._id);
-					div.setAttribute("id", beerEvent);
-					div.setAttribute("onmouseover", "OpenInfoWindow(this.getAttribute('value'), this.getAttribute('id'))");
+					marker.push( CreateMarker( events[beerEvent] ) );
+					div.setAttribute( "value", events[beerEvent]._id );
+					div.setAttribute( "id", beerEvent );
+					div.setAttribute( "onmouseover", "OpenInfoWindow( this.getAttribute( 'value' ), this.getAttribute( 'id' ) )" );
 				}
 
 				//append to 'festivals' ul
-				parent.appendChild(div);
+				parent.appendChild( div );
 			}
 		}
+
 	});
+
 }
 
 
-var OpenInfoWindow = (eventID, id) =>{
-	if(previousID != null){
-		document.getElementById(previousID).style.color = '#000000';
+var OpenInfoWindow = ( eventID, id ) => {
+
+	if ( previousID != null ) {
+		document.getElementById( previousID ).style.color = '#000000';
 	}
 	previousID = id;
-	document.getElementById(id).style.color = '#872d2e';
+	document.getElementById( id ).style.color = '#872d2e';
 
 	//if someone hovers over a beer event, then this function runs
-	for(let position = 0; position < marker.length; position++){
-		if(eventID == marker[position]._id){
+	for ( let position = 0; position < marker.length; position++ ) {
+		
+		if ( eventID == marker[position]._id ) {
 			//if the id of the beer event being hovered over matches 
 			//the marker being checked, then trigger a click event
-			google.maps.event.trigger(marker[position], 'click');
+			google.maps.event.trigger( marker[position], 'click' );
 			break;
 		}
 	}
+
 }
 
-var CreateMarker = (beerEvent) =>{
+var CreateMarker = ( beerEvent ) =>{
 
 	//create marker and set it's position and id on map
   	var marker = new google.maps.Marker({
@@ -88,7 +98,7 @@ var CreateMarker = (beerEvent) =>{
     });
 	
 	
-    google.maps.event.addListener(marker, 'click', function(){		    
+    google.maps.event.addListener( marker, 'click', () => {		    
     	//if marker is clicked, then show infowindow
         if(lastMarker){
         	lastMarker.infoWindow.close();		     
@@ -99,4 +109,5 @@ var CreateMarker = (beerEvent) =>{
     });
 
     return marker;
+    
 }			  

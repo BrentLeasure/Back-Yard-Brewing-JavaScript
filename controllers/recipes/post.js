@@ -16,8 +16,8 @@ PostRecipe = function(req, res){
 	// }
 
 	if(req.user){
-
 		for(variable in body){
+
 			if(body[variable] === null){
 
 				//if any of the variables are null, sent back with name of null variable.
@@ -44,7 +44,7 @@ PostRecipe = function(req, res){
 			}	
 		})
 	}else{
-		return res.status(403).send({message: "you are not logged in"});
+		return res.status(400).send({message: "you are not logged in"});
 	}
 }
 
