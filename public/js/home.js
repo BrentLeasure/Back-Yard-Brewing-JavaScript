@@ -1,6 +1,6 @@
 var Login = () => {
 
-	//setting user parameters
+	//Setting user parameters.
 	let login = { email: null, password: null };
 
 	login.email = document.getElementById( 'email' ).value;
@@ -9,8 +9,8 @@ var Login = () => {
 	PostRequest( '/auth/login', login, 'application/json', ( status, user ) => {
 		
 		if ( status == 200 ) {
-			//if user is passed, then open userprofile. Otherwise display err
-			user = JSON.parse( user.responseText );
+			//If user is passed, then set cookie for user. Otherwise display error.
+			
 			window.open( "/user/" + user.username, "_parent" );
 		} else {
 			console.log("error");

@@ -14,11 +14,10 @@ var InitMap = () => {
 }
 
 var FestivalsReady = () => {
-	console.log("testing" + festivals);
-	//onload, this function is ran
+
+	//Onload, get the list of festivals from server
 	GetRequest( '/getFestivals', undefined, ( status, festivals ) => {
 
-		
 		//if get request is successful, then create a google maps marker
 		if ( status == 200 ){	
 			//for each of the events in festivals.
