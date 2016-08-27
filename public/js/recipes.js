@@ -1,7 +1,7 @@
 var beerList = [];
 var search = '';
 
-var RecipesReady = () =>{
+function RecipesReady() {
 	//when page loads, this will be ran
 	GetRequest( '/getallbeertypes', undefined, ( status, returnData ) => {
 
@@ -45,7 +45,7 @@ var RecipesReady = () =>{
 
 
 
-var MoreInfo = ( beer ) => {
+function MoreInfo( beer ) {
 
 	GetRequest( '/beer/', beerList[beer].alias, ( num, data ) => {
 		if ( num == 200 ) {
@@ -90,7 +90,7 @@ var MoreInfo = ( beer ) => {
 }
 
 
-var CloseBeerWindow = () => {
+function CloseBeerWindow() {
 	
 	//displays the beer-list and hides the recipes 
 	document.getElementById('beer-list').style.display = 'inline-block';
@@ -98,7 +98,7 @@ var CloseBeerWindow = () => {
 
 }
 
-var SearchBeerList = ( search ) => {
+function SearchBeerList( search ) {
 	
 	if ( search != '' ) {
 		//If the search isn't empty, checks which beers match the search criteria

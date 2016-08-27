@@ -1,4 +1,4 @@
-var Login = () => {
+function Login () {
 
 	//Setting user parameters.
 	let login = { email: null, password: null };
@@ -9,8 +9,13 @@ var Login = () => {
 	PostRequest( '/auth/login', login, 'application/json', ( status, user ) => {
 		
 		if ( status == 200 ) {
-			//If user is passed, then set cookie for user. Otherwise display error.
-			
+
+			let userJson = JSON.parse(user);
+			//If user is passed, then set cookie for each user key. Otherwise display error.
+			for ( const key in userJson ) {
+				document.cookie= key + "=" + userJson[key];
+			}
+
 			window.open( "/user/" + user.username, "_parent" );
 		} else {
 			console.log("error");

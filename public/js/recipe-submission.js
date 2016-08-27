@@ -28,7 +28,7 @@ document.addEventListener( "DOMContentLoaded", ( event ) => {
 
 
 
-var SubmitRecipe = () => {
+function SubmitRecipe() {
 
 	//sets the recipe object and its keys
 	let recipe = { alias: null, description: null, category: null, instructions: null };
@@ -39,7 +39,7 @@ var SubmitRecipe = () => {
 	recipe.category = document.getElementById( 'beer-type-selection' ).value;
 	recipe.instructions = document.getElementById( 'instructions' ).value;
 
-	//posts to the server
+	//Posts user's recipe to the server
 	PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
 
 		if ( status != 200 ) {

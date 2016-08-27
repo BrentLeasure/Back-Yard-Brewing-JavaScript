@@ -3,7 +3,7 @@ var lastMarker;
 var marker = [];
 var previousID;
 
-var InitMap = () => {
+function InitMap() {
 
 	//initialize google map on festival page on load
 	festivalMap = new google.maps.Map( document.getElementById( 'festivals-map' ), {
@@ -13,7 +13,7 @@ var InitMap = () => {
 
 }
 
-var FestivalsReady = () => {
+function FestivalsReady() {
 
 	//Onload, get the list of festivals from server
 	GetRequest( '/getFestivals', undefined, ( status, festivals ) => {
@@ -60,7 +60,7 @@ var FestivalsReady = () => {
 }
 
 
-var OpenInfoWindow = ( eventID, id ) => {
+function OpenInfoWindow( eventID, id ) {
 
 	if ( previousID != null ) {
 		document.getElementById( previousID ).style.color = '#000000';
@@ -81,7 +81,7 @@ var OpenInfoWindow = ( eventID, id ) => {
 
 }
 
-var CreateMarker = ( beerEvent ) =>{
+function CreateMarker( beerEvent ) {
 
 	//create marker and set it's position and id on map
   	var marker = new google.maps.Marker({

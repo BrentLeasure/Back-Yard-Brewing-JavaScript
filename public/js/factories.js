@@ -4,7 +4,7 @@ var xhr = new XMLHttpRequest();
 //=================
 //GET REQUEST
 //=================
-var GetRequest = ( url, urlParameter, callback = undefined ) => {
+function GetRequest( url, urlParameter, callback = undefined ) {
 
 	//If url parameter is defined, use it in the request
 	if ( urlParameter != undefined ) {
@@ -26,7 +26,7 @@ var GetRequest = ( url, urlParameter, callback = undefined ) => {
 //=================
 //POST REQUEST
 //=================
-var PostRequest = ( url, data, MIMEType, callback = undefined ) => {
+function PostRequest( url, data, MIMEType, callback = undefined ) {
 
 	data = JSON.stringify(data);
 	xhr.open( 'POST', url );
@@ -42,7 +42,7 @@ var PostRequest = ( url, data, MIMEType, callback = undefined ) => {
 //=================
 //GET COOKIE
 //=================
-var getCookie = ( cookieName ) => {
+function GetCookie( cookieName ) {
 
 	//Set name to equal to cookie name + '='. The equals sign is a part of the cookie, which is why we add it
     let name = cookieName + "=";

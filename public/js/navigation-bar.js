@@ -1,6 +1,12 @@
 
-var IsLoggedOut = () => {
-	document.getElementById( 'logout-button' ).style.display = 'inline-block';
+function IsLoggedIn() {
+	//if user is logged in, display the logout button
+	var temp = GetCookie( '_id' );
+	if(  temp != "") {
+		console.log( temp );
+		document.getElementById( 'logout-button' ).style.display = 'inline-block';
+	}
+
 }
 
 //setting the navbar HTML
@@ -13,7 +19,7 @@ document.getElementById( 'navigation-bar' ).innerHTML =
  '</ul>';
 
 
-var Home = () => {
+function Home() {
 
 	GetRequest( '/api/me', undefined, ( status, user ) => {
 
