@@ -46,7 +46,7 @@ function SubmitRecipe() {
 			//if error, then display error message, othewise show success
 			document.getElementsByClassName( 'message' )[0].style.color = 'red';
 			document.getElementsByClassName( 'message' )[0].innerHTML = message;	
-		}else{
+		} else{
 			document.getElementsByClassName( 'message' )[0].style.color = 'green';
 			document.getElementsByClassName( 'message' )[0].innerHTML = message;	
 		}

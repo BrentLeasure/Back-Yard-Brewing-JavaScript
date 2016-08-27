@@ -49,21 +49,41 @@ function GetCookie( cookieName ) {
     //split the cookies into an array based on the semicolons separating them.
     let cookieArray = document.cookie.split(';');
 
-    //loop through the array
-    for( let cookie = 0; cookie < cookieArray.length; cookie++ ) {
+    for ( let cookie = 0; cookie < cookieArray.length; cookie++ ) {
     	//Set the current cookie to the cookie the array is currently on. 
         let currentCookie = cookieArray[cookie];
 
  		//While the first character in the string is blank, delete the first character.
-        while( currentCookie.charAt( 0 )==' ' ) {
+        while ( currentCookie.charAt( 0 )==' ' ) {
             currentCookie = currentCookie.substring( 1 );
         }
 
         //If name is equal to the first index of 'currentCookie', then return the name
-        if( currentCookie.indexOf( name ) == 0 ) {
+        if ( currentCookie.indexOf( name ) == 0 ) {
             return currentCookie.substring( name.length, currentCookie.length );
         }
     }
     return "";
+
+}
+
+//=================
+//DELETE COOKIES
+//=================
+function DeleteCookies() {
+	console.log( 'this is running' );
+
+	//Use old date to expire the cookies
+	let expire = 'expires=Thu, 01 Jan 1970 00:00:00 GMT;'
+
+	//Split each cookie into an array element.
+	let cookiesArray = document.cookie.split(";");
+	
+	//Split the cookie to have name as the first value.
+	//Then use the cookie's name to expire the cookie.
+	for ( let cookie = 0; cookie < cookiesArray.length; cookie++ ) {
+		let name = cookiesArray[cookie].split( "=" )[0];
+	  	document.cookie = name + "=; expires=" + expire + ";";
+  	}
 
 }

@@ -99,7 +99,7 @@ function CreateMarker( beerEvent ) {
 	
     google.maps.event.addListener( marker, 'click', () => {		    
     	//if marker is clicked, then show infowindow
-        if(lastMarker){
+        if (lastMarker){
         	lastMarker.infoWindow.close();		     
         }
         lastMarker = marker; 
