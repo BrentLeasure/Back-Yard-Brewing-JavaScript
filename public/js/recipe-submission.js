@@ -2,10 +2,12 @@
 document.addEventListener( "DOMContentLoaded", ( event ) => {
 
 	//request beer types
-	GetRequest( '/recipes/getallbeertypes', undefined, ( status, beerTypes ) => {
+	GetRequest( '/recipes/getallbeertypes', undefined, ( status, data ) => {
 
 		//if request is successfull, run this code
 		if ( status === 200 ) {
+			//set data to beerTypes
+			let beerTypes = JSON.parse( data );
 			let select = document.getElementById('beer-type-selection');
 			//sets first option to null
 			let option = document.createElement('option');

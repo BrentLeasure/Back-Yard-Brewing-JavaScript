@@ -17,7 +17,7 @@ function GetRequest( url, urlParameter, callback = undefined ) {
 	xhr.send( null );
 	//Once we recieve a response, return the callback function
 	xhr.onload = () => {
-		return callback( xhr.status, JSON.parse( xhr.responseText ) );
+		return callback( xhr.status, xhr.responseText );
 	}
 
 }
@@ -83,7 +83,7 @@ function DeleteCookies() {
 	//Then use the cookie's name to expire the cookie.
 	for ( let cookie = 0; cookie < cookiesArray.length; cookie++ ) {
 		let name = cookiesArray[cookie].split( "=" )[0];
-	  	document.cookie = name + "=; expires=" + expire + ";";
+	  	document.cookie = name + "=;" + expire;
   	}
 
 }

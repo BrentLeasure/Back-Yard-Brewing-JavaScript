@@ -16,10 +16,12 @@ function InitMap() {
 function FestivalsReady() {
 
 	//Onload, get the list of festivals from server
-	GetRequest( '/getFestivals', undefined, ( status, festivals ) => {
+	GetRequest( '/getFestivals', undefined, ( status, data ) => {
 
 		//if get request is successful, then create a google maps marker
 		if ( status == 200 ){	
+			//set data to festivals
+			let festivals = JSON.parse( data );
 			//for each of the events in festivals.
 			let events = festivals.events;
 			//set parent to 'festivals' id

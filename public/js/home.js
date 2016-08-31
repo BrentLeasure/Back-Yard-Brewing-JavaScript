@@ -20,9 +20,9 @@ function Login () {
 			for ( const key in user ) {
 				document.cookie = key + '=' + user[key] + ';expires=' + expireTime.toUTCString() + ";";
 			}
-
+			console.log(GetCookie( 'username' ));
 			//Open user's profile in another window using name as url.
-			window.open( '/user/' + user.username, '_parent' );
+			window.open( '/user/' + data.username, '_parent' );
 		} else {
 			console.log('error');
 		}

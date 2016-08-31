@@ -3,29 +3,29 @@ var search = '';
 
 function RecipesReady() {
 	//when page loads, this will be ran
-	GetRequest( '/getallbeertypes', undefined, ( status, returnData ) => {
+	GetRequest( '/getallbeertypes', undefined, ( status, data ) => {
 
 		if ( status == 200 ) {
-			//setting beerList to the returnData
-			beerList = returnData;
+			//setting beerList to data
+			beerList = JSON.parse( data );
 			let parent = document.getElementById( 'beers' );
 			let docfrag = document.createDocumentFragment();
 			
 			//loop through beerTypes to append a button to each list item
-			for ( let beer = 0; beer < returnData.length; beer++ ) {
+			for ( let beer = 0; beer < beerList.length; beer++ ) {
 				//create necessary elements
 				let li = document.createElement( 'li' );
 				let button = document.createElement( 'BUTTON' );
 
 				//set text content to list item
-				li.textContent = returnData[beer].alias;
+				li.textContent = beerList[beer].alias;
 
 				//append list item to button
 				button.appendChild( li );
 
 				// add onclick attribute
 				button.setAttribute( "value", beer );
-				button.setAttribute( "name", returnData[beer].alias );
+				button.setAttribute( "name", beerList[beer].alias );
 				button.setAttribute( "onclick", "MoreInfo( this.getAttribute( 'value' ) )" );
 				button.className = 'beer-buttons';
 
@@ -36,7 +36,7 @@ function RecipesReady() {
 			//display on DOM element
 			parent.appendChild( docfrag );
 		} else {
-			console.log( returnData.message );
+			console.log( beerList.message );
 		}
 
 	});	
@@ -47,7 +47,8 @@ function RecipesReady() {
 
 function MoreInfo( beer ) {
 
-	GetRequest( '/beer/', beerList[beer].alias, ( num, data ) => {
+	GetRequest( '/beer/', beerList[beer].alias, ( num, userRecipes ) => {
+		console.log( userRecipes.length );
 		if ( num == 200 ) {
 			//removing any previous nodes from previous calls
 			document.getElementById( 'user-recipes' ).innerHTML = "";
@@ -55,8 +56,8 @@ function MoreInfo( beer ) {
 			//set parent to recipes, and put the recipe list in a variable
 			let parent = document.getElementById( 'user-recipes' );
 			let docfrag = document.createDocumentFragment();
-			let recipeList = data;
-
+			let recipeList = userRecipes;
+			console.log(recipeList);
 			//set general beer type information
 			document.getElementById( 'title' ).textContent = beerList[beer].alias;
 			document.getElementById( 'about' ).textContent = beerList[beer].about;

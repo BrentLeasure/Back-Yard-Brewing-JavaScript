@@ -3,7 +3,7 @@ var passport = require('passport'), LocalStrategy = require('passport-local').St
 var performLogin = function(req, res, user){
   req.login(user, function(err){
     if(err){
-      res.send(err);
+      res.status( 400 ).send( { message: err } );
     }else{
       user.password = "none of your damn business";
       res.send(user);
@@ -15,17 +15,16 @@ var performLogin = function(req, res, user){
 var authenticationController = {
 
   processLogin: function(req, res){
-    var authFunction = passport.authenticate('local', function(err, user, info){
-      if(err){
-        res.send(err);
-      } else if(!user) {
-        return res.status(400).send({message: "username or password incorrect"});
+   var authenticate =  passport.authenticate('local', function(err, user, info){
+      if ( err ) {
+        res.send( err );
+      } else if( !user ) {
+        return res.status( 400 ).send( { message: "username or password incorrect" } );
       }else{
-        performLogin(req, res, user);
+        performLogin( req, res, user );
       }
     });
-
-    authFunction(req, res);
+    authenticate( req, res );
   },
 
   processSignup: function(req, res){

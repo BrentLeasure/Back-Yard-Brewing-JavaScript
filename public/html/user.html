@@ -9,11 +9,12 @@
 	<!-- PULLED FROM WEB -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
 </head>
-<body onload='IsLoggedIn()'>
+<body onload="UserReady();">
 	<nav id="navigation-bar"></nav>
 
 	<div id="user-profile-content">
 		<h3 id="username"></h3>
+		<button id='logout-button' onclick='Logout()'>Logout</button>
 		<button class="user-button-list">Your Recipes</button>
 		<button class="user-button-list">Favorite Recipes</button>
 	</div>
