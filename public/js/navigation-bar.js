@@ -18,7 +18,7 @@ document.getElementById( 'navigation-bar' ).innerHTML =
   "<li><button onclick='Home();' id='home-link'>Home</button></li>"+
   "<li><a id='recipes-link' href='/recipes'>Recipes</a></li>"+
   "<li><a id='festivals-link' href='/festivals'>Festivals</a></li>"+
- '</ul>';
+'</ul>';
 
 
 function Home() {
@@ -30,7 +30,6 @@ function Home() {
 		let user = JSON.parse( data );
 
 		if ( status == 200){
-			document.getElementById( 'logout-button' ).style.display = 'inline-block';
 			window.open('/user/' + user.username, '_parent');
 		} else{
 			window.open( '/', '_parent' );

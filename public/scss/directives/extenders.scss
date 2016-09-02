@@ -9,21 +9,21 @@ body{
 	background-attachment: fixed;
 }
 
-.general-content{
+.general-content {
 	position: relative;
 	top: 70px;
 	padding: 15px;
 }
 
 
-.list-of-buttons{
+.list-of-buttons {
 	float: left;
 	display: inline-block;
 	width: 25%;
 	margin: 3% 3%;
 }
 
-.buttons{
+.buttons {
 	background-color: transparent;
 	border: none;
 	padding: 5px 5px 5px;
@@ -32,24 +32,25 @@ body{
 	border-radius: 5px;
 }
 
-.close-button{
+.close-button {
 	padding: 5px;
 }
 
-.button-hover{
+.button-hover {
 	background-color: $mainColorTransparent;
 }
-.general-li{
+
+.general-li {
 	list-style: none;
 }
 
 
-.general-ul{
+.general-ul {
 	padding: 0px;
 	margin: 0px;
 }
 
-.general-input-box{
+.general-input-box {
 	border: 2px solid $borderColor;
 	border-radius: 5px;
 	margin: 10px 5px 10px;

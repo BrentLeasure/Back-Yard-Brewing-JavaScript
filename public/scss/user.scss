@@ -3,4 +3,9 @@
 
 #user-profile-content{
 	@extend .general-content;
+
+	#logout-button{
+		float: right;
+		@extend .buttons;
+	}
 }
