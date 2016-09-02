@@ -1,10 +1,14 @@
 var beerList = [];
 var search = '';
 
-function RecipesReady() {
+window.onload = function(){
+	RecipesLoad();
+	IsLoggedIn();
+}
+
+function RecipesLoad() {
 	//when page loads, this will be ran
 	GetRequest( '/getallbeertypes', undefined, ( status, data ) => {
-
 		if ( status == 200 ) {
 			//setting beerList to data
 			beerList = JSON.parse( data );
@@ -47,8 +51,8 @@ function RecipesReady() {
 
 function MoreInfo( beer ) {
 
-	GetRequest( '/beer/', beerList[beer].alias, ( num, userRecipes ) => {
-		console.log( userRecipes.length );
+	GetRequest( '/beer/', beerList[beer].alias, ( num, data ) => {
+
 		if ( num == 200 ) {
 			//removing any previous nodes from previous calls
 			document.getElementById( 'user-recipes' ).innerHTML = "";
@@ -56,7 +60,7 @@ function MoreInfo( beer ) {
 			//set parent to recipes, and put the recipe list in a variable
 			let parent = document.getElementById( 'user-recipes' );
 			let docfrag = document.createDocumentFragment();
-			let recipeList = userRecipes;
+			let recipeList = JSON.parse( data );
 			console.log(recipeList);
 			//set general beer type information
 			document.getElementById( 'title' ).textContent = beerList[beer].alias;

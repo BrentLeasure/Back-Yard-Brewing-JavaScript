@@ -1,6 +1,10 @@
 //when the page is loaded, this will run
-document.addEventListener( "DOMContentLoaded", ( event ) => {
+window.onload = function(){
+	RecipeSubmissionLoad();
+	IsLoggedIn();
+}
 
+function RecipeSubmissionLoad(){
 	//request beer types
 	GetRequest( '/recipes/getallbeertypes', undefined, ( status, data ) => {
 
@@ -26,7 +30,7 @@ document.addEventListener( "DOMContentLoaded", ( event ) => {
 
 	});
 
-});
+}
 
 
 

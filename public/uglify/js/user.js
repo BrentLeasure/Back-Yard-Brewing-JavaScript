@@ -1,0 +1,1 @@
+"use strict";function UserLoad(){GetRequest("/api/me",void 0,function(e,n){200===e&&(user=JSON.parse(n),document.getElementById("username").innerHTML="Welcome back, "+user.username)})}var user={};window.onload=function(){UserLoad(),IsLoggedIn()};

@@ -1,6 +1,11 @@
 var user = {};
 
-function UserReady() {
+window.onload = function(){
+	UserLoad();
+	IsLoggedIn();
+}
+
+function UserLoad() {
 
 	GetRequest( '/api/me', undefined, ( status, data ) => {
 		if ( status === 200 ) {

@@ -3,6 +3,12 @@ var lastMarker;
 var marker = [];
 var previousID;
 
+window.onload = function(){
+	InitMap();
+	FestivalsLoad();
+	IsLoggedIn();
+}
+
 function InitMap() {
 
 	//initialize google map on festival page on load
@@ -13,7 +19,7 @@ function InitMap() {
 
 }
 
-function FestivalsReady() {
+function FestivalsLoad() {
 
 	//Onload, get the list of festivals from server
 	GetRequest( '/getFestivals', undefined, ( status, data ) => {

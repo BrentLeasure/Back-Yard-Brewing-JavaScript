@@ -28,32 +28,11 @@ gulp.task('sass', function(){
 		.pipe(gulp.dest('public/uglify/css'))
 });
 
-// gulp.task('babel', function (){
-// 	return gulp.src('./public/js/*.js')
-// 		.pipe(flatmap(function(stream, file){
-// 			var contents = 
-// 		}))
-// 		.pipe(babel({
-// 			presets: ['es2015']
-// 		}))
-// });
-
 gulp.task('babel', function() {
   var files = ['public/js/*.js'];
 
   gulp.src( files )
 	.pipe( babel( { presets: ['es2015'] } ) )
     .pipe( uglify() )
-    .pipe( gulp.dest( '/uglify/js' ) );
+    .pipe( gulp.dest( './public/uglify/js/' ) );
 });
-// gulp.task('babel', function(){
-// 	return gulp.src('./public/js/*.js')
-// 		.pipe(babel({
-// 			presets: ['es2015']
-// 		}))
-// 		.pipe(concat('bundle.js'))
-// 		.pipe(uglify())
-// 		.pipe(gulp.dest('./public/uglify/js/'))
-// });
-
-

@@ -1,11 +1,8 @@
-var xhr = new XMLHttpRequest();
-
-
 //=================
 //GET REQUEST
 //=================
 function GetRequest( url, urlParameter, callback = undefined ) {
-
+	var xhr = new XMLHttpRequest();
 	//If url parameter is defined, use it in the request
 	if ( urlParameter != undefined ) {
 		xhr.open( 'GET', url + urlParameter );	
@@ -27,7 +24,8 @@ function GetRequest( url, urlParameter, callback = undefined ) {
 //POST REQUEST
 //=================
 function PostRequest( url, data, MIMEType, callback = undefined ) {
-
+	var xhr = new XMLHttpRequest();
+	
 	data = JSON.stringify(data);
 	xhr.open( 'POST', url );
 	xhr.setRequestHeader( 'Content-Type', MIMEType );
@@ -87,3 +85,18 @@ function DeleteCookies() {
   	}
 
 }
+
+//=================
+//IS LOGGED IN
+//=================
+function IsLoggedIn() {
+
+	//If user is logged in, display the logout button.
+	GetRequest( '/api/me', undefined, ( status, data ) => {
+
+		if ( status == 200 ) {
+			document.getElementById( 'logout-button' ).style.display = 'inline-block';
+		}
+
+	});
+};

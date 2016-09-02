@@ -4,6 +4,8 @@ var recipeModel = require("../../models/recipes");
 //================
 GetByBeerType = function(req, res){
 	recipeModel.userRecipe.find({selectedCategory: req.params.beerAlias}, function(err, recipes){
+		console.log(recipes);
+		console.log(recipes.length);
 		if(err){
 			res.send(err);
 		}else{ 
