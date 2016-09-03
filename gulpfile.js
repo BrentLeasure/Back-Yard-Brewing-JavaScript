@@ -5,7 +5,7 @@ var concat = require( 'gulp-concat' );
 var uglify = require( 'gulp-uglify' );
 var uglifycss = require( 'gulp-uglifycss' );
 var nodemon = require( 'gulp-nodemon' );
-var flatmap = require( 'gulp-flatmap' );
+
 
 gulp.task('default', ['sass', 'babel', 'nodemon'], function(){
 	gulp.watch('./public/scss/*.scss', ['sass']);

@@ -3,6 +3,7 @@
 @import './directives/mixins';
 
 #festivals-content{
+	@include animation(fadeIn .5s);
 	@extend .general-content;
 
 	.festival-col{
@@ -23,5 +24,14 @@
 		border: 3px solid white;
 		border-radius: 5px;
 		@include heightWidth(500px, 48%);
+	}
+}
+
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
 	}
 }

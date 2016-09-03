@@ -1,3 +1,11 @@
+@mixin animation($animation){
+	animation: $animation;
+	-moz-animation: $animation;	
+	-webkit-animation: $animation;
+	-webkit-animation: $animation;
+	
+}  	
+
 @mixin heightWidth($height, $width){
 	height: $height;
 	width: $width;

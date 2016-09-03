@@ -1,7 +1,9 @@
 @import './directives/extenders';
+@import './directives/variables';
 @import './directives/mixins';
 
-#content{
+#recipes-content{
+	@include animation(fadeIn .5s);
 	@extend .general-content;
 	
 	#search-beers{
@@ -78,5 +80,14 @@
 
 	@media screen and (max-width: $smallScreen){
 		font-size: 6px;
+	}
+}
+
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
 	}
 }
