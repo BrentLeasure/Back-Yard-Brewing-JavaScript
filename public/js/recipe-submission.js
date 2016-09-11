@@ -1,7 +1,9 @@
 //when the page is loaded, this will run
 window.onload = function(){
+	
 	RecipeSubmissionLoad();
 	IsLoggedIn();
+	
 }
 
 function RecipeSubmissionLoad(){

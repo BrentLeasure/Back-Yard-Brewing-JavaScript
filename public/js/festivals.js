@@ -4,9 +4,11 @@ var marker = [];
 var previousID;
 
 window.onload = function(){
+	
 	InitMap();
 	FestivalsLoad();
 	IsLoggedIn();
+	
 }
 
 function InitMap() {

@@ -1,6 +1,6 @@
 var user = {};
 
-window.onload = function(){
+window.onload = () => {
 	UserLoad();
 	IsLoggedIn();
 }

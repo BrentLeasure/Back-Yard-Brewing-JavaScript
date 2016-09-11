@@ -2,8 +2,10 @@ var beerList = [];
 var search = '';
 
 window.onload = function(){
+	
 	RecipesLoad();
 	IsLoggedIn();
+	
 }
 
 function RecipesLoad() {

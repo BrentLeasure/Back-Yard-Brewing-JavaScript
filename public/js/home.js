@@ -1,3 +1,7 @@
+window.onload = () => {
+	IsLoggedIn();
+}
+
 function Login () {
 
 	//Setting user parameters.
@@ -9,18 +13,9 @@ function Login () {
 	PostRequest( '/auth/login', login, 'application/json', ( status, data ) => {
 		
 		if ( status == 200 ) {
-			//Set 'expireTime' to current date and then add 1 hour to it.
-			let expireTime = new Date( Date.now() );
-			expireTime.setHours( expireTime.getHours() + 1 );
-			
 			// Parse the return data.
 			let user = JSON.parse(data);
 			
-			//Set cookie for each user key. 
-			for ( const key in user ) {
-				document.cookie = key + '=' + user[key] + ';expires=' + expireTime.toUTCString() + ";";
-			}
-			console.log(GetCookie( 'username' ));
 			//Open user's profile in another window using name as url.
 			window.open( '/user/' + data.username, '_parent' );
 		} else {
