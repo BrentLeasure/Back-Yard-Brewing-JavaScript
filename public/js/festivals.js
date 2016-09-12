@@ -3,21 +3,22 @@ var lastMarker;
 var marker = [];
 var previousID;
 
+document.getElementById( 'festivals-content' ).style.display = 'none';
+
 window.onload = function(){
-	
-	InitMap();
+
 	FestivalsLoad();
 	IsLoggedIn();
 	
 }
 
 function InitMap() {
-
+	
 	//initialize google map on festival page on load
 	festivalMap = new google.maps.Map( document.getElementById( 'festivals-map' ), {
-	  center: { lat: 39.244785, lng: -105.511852 },
 	  zoom: 8
 	});
+
 
 }
 
@@ -64,9 +65,12 @@ function FestivalsLoad() {
 				parent.appendChild( div );
 			}
 		}
-
 	});
 
+	document.getElementById( 'festivals-content' ).style.display = 'block';	
+	google.maps.event.trigger( festivalMap, 'resize' );
+	festivalMap.setCenter( new google.maps.LatLng( 39.244785, -105.511852 ) );		
+						
 }
 
 
