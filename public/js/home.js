@@ -1,5 +1,7 @@
 window.onload = () => {
+
 	IsLoggedIn();
+	
 }
 
 function Login () {

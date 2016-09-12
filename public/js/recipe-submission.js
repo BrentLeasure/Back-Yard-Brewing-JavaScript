@@ -1,4 +1,5 @@
 //when the page is loaded, this will run
+document.getElementById( 'submission-content' ).style.display = 'none';
 window.onload = function(){
 	
 	RecipeSubmissionLoad();
@@ -31,7 +32,7 @@ function RecipeSubmissionLoad(){
 		}
 
 	});
-
+	document.getElementById( 'submission-content' ).style.display = 'inline-block';
 }
 
 

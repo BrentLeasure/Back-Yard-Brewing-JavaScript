@@ -1,8 +1,12 @@
 var user = {};
 
+document.getElementById( 'user-profile-content' ).style.display = 'none';
+
 window.onload = () => {
+
 	UserLoad();
 	IsLoggedIn();
+
 }
 
 function UserLoad() {
@@ -14,6 +18,7 @@ function UserLoad() {
 		}
 
 	});
+	document.getElementById( 'user-profile-content' ).style.display = 'inline-block';
 	
 }
 
