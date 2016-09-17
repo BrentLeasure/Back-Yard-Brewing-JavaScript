@@ -9,7 +9,7 @@ window.onload = function(){
 
 function RecipeSubmissionLoad(){
 	//request beer types
-	GetRequest( '/recipes/getallbeertypes', undefined, ( status, data ) => {
+	GetRequest( '/getallbeertypes', undefined, ( status, data ) => {
 
 		//if request is successfull, run this code
 		if ( status === 200 ) {
@@ -50,11 +50,25 @@ function SubmitRecipe() {
 
 	//Posts user's recipe to the server
 	PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
-
+		let messages = JSON.parse( message );
 		if ( status != 200 ) {
-			//if error, then display error message, othewise show success
-			document.getElementsByClassName( 'message' )[0].style.color = 'red';
-			document.getElementsByClassName( 'message' )[0].innerHTML = message;	
+			
+			if ( messages['alias'] ){
+				console.log( "This is : " + messages['alias'] );
+			}
+			if ( messages['description'] ){
+				console.log( "This is : " + messages['description'] );
+			}
+			if ( messages['category'] ){
+				console.log( "This is : " + messages['category'] );
+			}
+			if ( messages['instructions'] ){
+				console.log( "This is : " + messages['instructions'] );
+			}			
+			if ( messages.message ) {
+				document.getElementsByClassName( 'message' )[0].style.color = 'red';
+				document.getElementsByClassName( 'message' )[0].innerHTML = messages.message;	
+			}
 		} else{
 			document.getElementsByClassName( 'message' )[0].style.color = 'green';
 			document.getElementsByClassName( 'message' )[0].innerHTML = message;	
