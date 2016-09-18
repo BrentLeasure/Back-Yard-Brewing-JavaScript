@@ -4,7 +4,13 @@
 
 #submission-content{
 	@include animation(fadeIn .5s);
-	@extend .general-content;	
+	@extend .general-content;
+	.err-message {
+		@extend .err-message;
+	}
+	.message {
+		@extend .message;
+	}	
 }
 
 

@@ -15,20 +15,30 @@
 	<nav id="navigation-bar"></nav>
 	<div id="submission-content">
 			<p class="message"></p>
-			<label>Beer Name</label></br>
-			<input id="alias" name="alias"></br>
+			<p>
+				<label><u>Beer Name</u></label></br>
+				<span class='err-message' id='alias-err'></span></br>
+				<input id="alias" name="alias"></br>
+			</p>
 		<!-- 	<label>Image</label>
 			<input type="file"> -->
-			<label>Category</label></br>
-			<select id="beer-type-selection">
-			</select></br>
-
-			<label>Description</label></br>
-			<textarea id="description" maxlength="500" cols="50" rows="5"></textarea></br>
-
-			<label>Instructions</label></br>
-			<textarea id="instructions" maxlength="1000" cols="50" rows"5"></textarea></br>
-
+			<p>
+				<label><u>Category</u></label></br>
+				<span class='err-message' id='category-err'></span></br>
+				<select id="beer-type-selection">
+					<option disabled selected value> -- Select A Beer Category -- </option>
+				</select>
+			</p>
+			<p>
+				<label><u>Description</u></label></br>
+				<span class='err-message' id='description-err'></span></br>
+				<textarea id="description" maxlength="500" cols="50" rows="5"></textarea></br>
+			</p>
+			<p>
+				<label><u>Instructions</u></label></br>
+				<span class='err-message' id='instructions-err'></span></br>
+				<textarea id="instructions" maxlength="1000" cols="50" rows"5"></textarea></br>
+			</p>
 			<input type="submit" onclick="SubmitRecipe()">
 	</div>
 

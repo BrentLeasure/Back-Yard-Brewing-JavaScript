@@ -17,10 +17,6 @@ function RecipeSubmissionLoad(){
 			let beerTypes = JSON.parse( data );
 			let select = document.getElementById('beer-type-selection');
 			//sets first option to null
-			let option = document.createElement('option');
-			option.innerHTML = '-- Select One --'
-			option.value = null;
-			select.appendChild(option);
 
 			for ( let beer = 0; beer < beerTypes.length; beer++ ) {
 				//Set select options to each beer type
@@ -51,19 +47,25 @@ function SubmitRecipe() {
 	//Posts user's recipe to the server
 	PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
 		let messages = JSON.parse( message );
+		let spans = document.getElementsByTagName( 'span' );
+
+		for ( let span = 0; span < spans.length; span++ ) {
+			spans[span].innerHTML = '';
+		}
+
 		if ( status != 200 ) {
-			
+	
 			if ( messages['alias'] ){
-				console.log( "This is : " + messages['alias'] );
-			}
+				document.getElementById( 'alias-err' ).innerHTML = '*' + messages['alias'];
+			} 
 			if ( messages['description'] ){
-				console.log( "This is : " + messages['description'] );
+				document.getElementById( 'description-err' ).innerHTML = '*' + messages['description'];
 			}
 			if ( messages['category'] ){
-				console.log( "This is : " + messages['category'] );
+				document.getElementById( 'category-err' ).innerHTML = '*' + messages['category'];
 			}
 			if ( messages['instructions'] ){
-				console.log( "This is : " + messages['instructions'] );
+				document.getElementById( 'instructions-err' ).innerHTML = '*' + messages['instructions'];
 			}			
 			if ( messages.message ) {
 				document.getElementsByClassName( 'message' )[0].style.color = 'red';

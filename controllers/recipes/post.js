@@ -16,8 +16,9 @@ function PostRecipe( req, res ) {
 	// }
 
 	if ( req.user ) {
-		for ( variable in body ) {
+		for ( variable in body ) {			
 			if ( !body[variable] ) {				
+				console.log(variable);
 				messages[variable] = "You left the " + variable + " field blank";
 			}
 
