@@ -31,7 +31,7 @@ var recipes = require("./controllers/recipes/index");
 var favoriteRecipes = require("./controllers/favorite-recipes/index");
 var authenticationController = require('./controllers/authentication');
 var imageController = require("./controllers/imageController");
-var dataScrape = require("./controllers/dataScrape");
+
 
 var passportConfig = require('./config/passport');
 var passport = require('passport');
@@ -96,10 +96,6 @@ server.get("/getuserrecipes/:_id", recipes.Get.GetUserRecipes);
 server.get("/getuserrecipe/:_id", recipes.Get.GetUserRecipe);
 
 server.get("/getFavoriteRecipes", favoriteRecipes.Get.GetFavoriteRecipes);
-
-server.get("/getFestivals", dataScrape.getFestivals);
-
-
 
 //=============
 //POST ROUTES

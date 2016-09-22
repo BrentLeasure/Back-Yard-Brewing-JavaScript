@@ -43,8 +43,9 @@ function SubmitRecipe() {
 	recipe.description = document.getElementById( 'description' ).value;
 	recipe.category = document.getElementById( 'beer-type-selection' ).value;
 	recipe.instructions = document.getElementById( 'instructions' ).value;
-
-	//Posts user's recipe to the server
+	recipe.image = document.getElementById( 'image' ).value;
+	
+	// Posts user's recipe to the server
 	PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
 		let messages = JSON.parse( message );
 		let spans = document.getElementsByTagName( 'span' );
