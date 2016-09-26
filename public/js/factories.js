@@ -74,3 +74,16 @@ function IsLoggedIn() {
 
 	});
 };
+
+
+function FileReadImage( image ) {
+
+	let fr = new FileReader();
+
+	fr.onload = function() {
+		var dataURL = this.result.replace( /^data:image\/(png|jpg|jpeg);base64,/, '' );
+		JSON.stringify( dataURL );
+	};
+
+	fr.readAsDataURL( image );
+}
