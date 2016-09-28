@@ -45,48 +45,46 @@ function SubmitRecipe() {
 	recipe.description = document.getElementById( 'description' ).value;
 	recipe.category = document.getElementById( 'beer-type-selection' ).value;
 	recipe.instructions = document.getElementById( 'instructions' ).value;
-	// recipe.image = 
-	FileReadImage( img );
-
-	console.log( 'Image: ' + recipe.image );
-
-
-
-	// Posts user's recipe to the server
-	// PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
-	// 	let messages = JSON.parse( message );
-	// 	let spans = document.getElementsByTagName( 'span' );
-
-	// 	for ( let span = 0; span < spans.length; span++ ) {
-	// 		spans[span].innerHTML = '';
-	// 	}
-
-	// 	if ( status != 200 ) {
-	
-	// 		if ( messages['alias'] ){
-	// 			document.getElementById( 'alias-err' ).innerHTML = '*' + messages['alias'];
-	// 		} 
-	// 		if ( messages['description'] ){
-	// 			document.getElementById( 'description-err' ).innerHTML = '*' + messages['description'];
-	// 		}
-	// 		if ( messages['category'] ){
-	// 			document.getElementById( 'category-err' ).innerHTML = '*' + messages['category'];
-	// 		}
-	// 		if ( messages['instructions'] ){
-	// 			document.getElementById( 'instructions-err' ).innerHTML = '*' + messages['instructions'];
-	// 		}
-	// 		if ( messages['image'] ){
-	// 			document.getElementById( 'image-err' ).innerHTML = '*' + messages['image'];
-	// 		}				
-	// 		if ( messages.message ) {
-	// 			document.getElementsByClassName( 'message' )[0].style.color = 'red';
-	// 			document.getElementsByClassName( 'message' )[0].innerHTML = messages.message;	
-	// 		}
-	// 	} else{
-	// 		document.getElementsByClassName( 'message' )[0].style.color = 'green';
-	// 		document.getElementsByClassName( 'message' )[0].innerHTML = message;	
-	// 	}
+	FileReadImage( img, function ( image ) {
+		recipe.image = image;
 		
-	// });
+		// Posts user's recipe to the server
+		PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
+			let messages = JSON.parse( message );
+			let spans = document.getElementsByTagName( 'span' );
+
+			for ( let span = 0; span < spans.length; span++ ) {
+				spans[span].innerHTML = '';
+			}
+
+			if ( status != 200 ) {
+		
+				if ( messages['alias'] ){
+					document.getElementById( 'alias-err' ).innerHTML = '*' + messages['alias'];
+				} 
+				if ( messages['description'] ){
+					document.getElementById( 'description-err' ).innerHTML = '*' + messages['description'];
+				}
+				if ( messages['category'] ){
+					document.getElementById( 'category-err' ).innerHTML = '*' + messages['category'];
+				}
+				if ( messages['instructions'] ){
+					document.getElementById( 'instructions-err' ).innerHTML = '*' + messages['instructions'];
+				}
+				if ( messages['image'] ){
+					document.getElementById( 'image-err' ).innerHTML = '*' + messages['image'];
+				}				
+				if ( messages.message ) {
+					document.getElementsByClassName( 'message' )[0].style.color = 'red';
+					document.getElementsByClassName( 'message' )[0].innerHTML = messages.message;	
+				}
+			} else{
+				document.getElementsByClassName( 'message' )[0].style.color = 'green';
+				document.getElementsByClassName( 'message' )[0].innerHTML = message;	
+			}
+			
+		});
+	});
+		
 
 };
