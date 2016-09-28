@@ -82,7 +82,7 @@ function FileReadImage( image, done ) {
 
 	fr.onload = function() {
 		dataURL = this.result.replace( /^data:image\/(png|jpg|jpeg);base64,/, '' );
-		done( JSON.stringify( dataURL ) );
+		done( dataURL );
 	};
 
 	fr.readAsDataURL( image );

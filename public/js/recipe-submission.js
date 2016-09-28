@@ -47,7 +47,6 @@ function SubmitRecipe() {
 	recipe.instructions = document.getElementById( 'instructions' ).value;
 	FileReadImage( img, function ( image ) {
 		recipe.image = image;
-		
 		// Posts user's recipe to the server
 		PostRequest( "/createrecipe", recipe, 'application/json', ( status, message ) => {
 			let messages = JSON.parse( message );

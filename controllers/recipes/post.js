@@ -28,9 +28,9 @@ function PostRecipe( req, res ) {
 
 			newRecipe.save( function( err, data ) {
 				if ( err ) {
-					res.status( 400 ).send( { message: err } );
+					res.status( 400 ).send( err );
 				} else {
-					res.status( 200 ).send( { message: "success!" } );
+					res.status( 200 ).send( "success!" } );
 				}	
 			});
 		} else {
