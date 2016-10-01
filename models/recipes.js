@@ -3,7 +3,7 @@ mongoose.connect("mongodb://localhost/BackYardBrewing");
 
 var recipeSchema = mongoose.Schema({
 	alias            : {type 	: String},
-	Category		 : {type 	: String},
+	category		 : {type 	: String},
 	description      : {type 	: String},
 	instructions     : {type 	: String},
 	userID			 : {type 	: String},

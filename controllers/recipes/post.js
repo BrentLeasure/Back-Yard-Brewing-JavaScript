@@ -30,17 +30,17 @@ function PostRecipe( req, res ) {
 				if ( err ) {
 					res.status( 400 ).send( err );
 				} else {
-					res.status( 200 ).send( "success!" } );
+					return res.status( 200 ).send( { message : 'success!' } );
 				}	
 			});
 		} else {
 			for ( var message in messages ) {
-				console.log ( 'This is the message: ' +  messages[message] );
+				console.log ( messages[message] );
 			}
 			res.status( 400 ).send( messages );
 		}
 	} else {
-		return res.status( 400 ).send( "you are not logged in" );
+		return res.status( 400 ).send( { message :'you are not logged in' } );
 	}
 
 }

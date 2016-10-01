@@ -76,16 +76,20 @@ function IsLoggedIn() {
 };
 
 
-function FileReadImage( image, done ) {
-	var dataURL;
-	let fr = new FileReader();
+function FileReadImage( image=null, done ) {
+	if( image == null ){
+		done( null );
+	} else {
+		var dataURL;
+		let fr = new FileReader();
 
-	fr.onload = function() {
-		dataURL = this.result.replace( /^data:image\/(png|jpg|jpeg);base64,/, '' );
-		done( dataURL );
-	};
+		fr.onload = function() {
+			dataURL = this.result.replace( /^data:image\/(png|jpg|jpeg);base64,/, '' );
+			done( dataURL );
+		};
 
-	fr.readAsDataURL( image );
+		fr.readAsDataURL( image );
+	}
 }
 
 

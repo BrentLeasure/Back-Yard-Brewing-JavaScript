@@ -79,7 +79,7 @@ function SubmitRecipe() {
 				}
 			} else{
 				document.getElementsByClassName( 'message' )[0].style.color = 'green';
-				document.getElementsByClassName( 'message' )[0].innerHTML = message;	
+				document.getElementsByClassName( 'message' )[0].innerHTML = messages.message;	
 			}
 			
 		});
