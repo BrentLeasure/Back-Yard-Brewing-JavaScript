@@ -1,0 +1,17 @@
+@import './directives/extenders';
+@import './directives/variables';
+@import './directives/mixins';
+
+#recipe-single-content{
+	@include animation(fadeIn .5s);
+	@extend .general-content;
+}
+	
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
